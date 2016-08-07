@@ -13,3 +13,4 @@
         <a href = "<?=APP_ROOT?>/users/login">[Go To Login]</a>
     </div>
 </form>
+<!-- -->
