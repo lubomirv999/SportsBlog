@@ -19,9 +19,9 @@
 -- Table structure for table `comments`
 --
 
-drop database if exists `sportsblog`;
-create database `sportsblog`;
-use `sportsblog`;
+drop database if exists `sportsblogdb`;
+create database `sportsblogdb`;
+use `sportsblogdb`;
 
 DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
