@@ -93,6 +93,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+CREATE UNIQUE INDEX UserName_UNIQUE ON users (UserName);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

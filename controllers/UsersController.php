@@ -40,6 +40,7 @@ class UsersController extends BaseController
 
     public function logout()
     {
-		// TODO: your user logout functionality will come here ...
+        session_destroy();
+        $this->redirect("home");
     }
 }
