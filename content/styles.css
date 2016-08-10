@@ -1,6 +1,18 @@
+body {
+    background-color: #00CED1;
+}
+
 body>header {
-    background: #eee;
-    padding: 5px;
+    background: white;
+    padding: 7px;
+    border-radius: 10px;
+    color: darkblue;
+}
+
+a:hover{
+    background-color: cyan;
+    font-size: 125%;
+    border-radius: 5px;
 }
 
 body>header>a>img, body>header a  {
@@ -8,14 +20,29 @@ body>header>a>img, body>header a  {
     vertical-align: middle;
     padding: 0px 5px;
     font-size: 1.2em;
+    font-family: "Arial", Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
 }
 
 body>footer {
-    background: #eee;
+    background: white;
     padding: 5px;
     margin: 10px 0;
     text-align: center;
+    font-family: "Arial", Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-color: #00CED1;
+    border-radius: 10px;
+    color: darkblue;
 }
+
+form{
+    font-family: "Arial", Arial, sans-serif;
+    color: white;
+}
+
 
 table th, table td {
     background: #DDD;

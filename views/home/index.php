@@ -1,4 +1,4 @@
-<?php $this->title = 'Welcome to My Blog'; ?>
+<?php $this->title = 'Welcome to our Blog - SportZen'; ?>
 
 <h1><?=htmlspecialchars($this->title)?></h1>
 
