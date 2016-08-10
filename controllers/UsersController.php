@@ -22,11 +22,11 @@ class UsersController extends BaseController
                 if ($userId) {
                     $_SESSION['username'] = $username;
                     $_SESSION['userId'] = $userId;
-                    $this->addInfoMessage("Login successful");
+                    $this->addInfoMessage("Register successful");
                     return $this->redirect("posts");
                 }
                 else {
-                    $this -> addErrorMessage("Error: login failed!");
+                    $this -> addErrorMessage("Error: register failed!");
 
                 }
             }
@@ -35,12 +35,27 @@ class UsersController extends BaseController
 
     public function login()
     {
-		// TODO: your user login functionality will come here ...
+		if ($this->isPost) {
+		    $username = $_POST['username'];
+            $password = $_POST['password'];
+            $loggedUserId = $this->model->login($username, $password);
+            if ($loggedUserId){
+                $_SESSION['username'] = $username;
+                $_SESSION['userId'] = $loggedUserId;
+                $this->addInfoMessage('Login successful.');
+                return $this->redirect("posts");
+            }
+            else {
+                $this->addErrorMessage("Login failed!");
+            }
+
+        }
     }
 
     public function logout()
     {
         session_destroy();
+        $this->addInfoMessage("Logout successful!");
         $this->redirect("home");
     }
 }

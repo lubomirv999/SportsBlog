@@ -16,22 +16,21 @@
     </div>
 </form>
 <script>
-    $("form[name='regForm']").submit(function(event) {
-    if (!passwordValidation()) {
-        event.preventDefault();
-    }
-   });
-function passwordValidation(){
-    var password = document.getElementById('password').value;
-    var confirmPass = document.getElementById('confirmPassword').value;
-    if (password!=confirmPass){
-        alert("Passwords do not match!")
-        return false;
-    }
-    else {
-        return true;
+        $("form[name='regForm']").submit(function(event) {
+            if (!passwordValidation()) {
+                event.preventDefault();
+            }
+        });
+        function passwordValidation(){
+            var password = document.getElementById('password').value;
+            var confirmPass = document.getElementById('confirmPassword').value;
+            if (password!=confirmPass){
+                alert("Passwords do not match!")
+                return false;
+            }
+            else {
+                return true;
     }
 }
 </script>
-
 <!-- -->

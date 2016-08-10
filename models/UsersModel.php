@@ -13,4 +13,15 @@ class UsersModel extends BaseModel
         $userId = self::$db->query("SELECT LAST_INSERT_Id()")->fetch_row()[0];
         return $userId;
     }
+
+    public function login ( string $username, string $password ){
+        $statement = self::$db->prepare(
+            "SELECT ID, Password FROM users WHERE UserName = ?");
+        $statement ->bind_param("s", $username);
+        $statement -> execute();
+        $result = $statement -> get_result() -> fetch_assoc();
+        if (password_verify($password,$result['Password']))
+            return $result['ID'];
+        return false;
+    }
 }
