@@ -1,5 +1,8 @@
 body {
-    background-color: #00CED1;
+    width: 100%;
+    height: 100%;
+    background: #00CED1;
+    background: linear-gradient(to right, #99ccff, #1a8cff);
 }
 
 body>header {
