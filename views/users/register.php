@@ -33,27 +33,27 @@
                     <form method="post" name="regForm">
                         <h1> Sign up </h1>
                         <p>
-                            <label for="username">Username:</label>
-                            <input type = "text" id = "username" name = "username" required="required" placeholder="Pesho" />
+                            <label for="username"></label>
+                            <input type = "text" id = "username" name = "username" required="required" placeholder="Username" />
                         </p>
                         <p>
-                            <label for="password">Password:</label>
-                            <input type = "password" name = "password" id = "password" placeholder="eg. asdasd123" />
+                            <label for="password"></label>
+                            <input type = "password" name = "password" id = "password" placeholder="Password" />
                         </p>
                         <p>
-                            <label for="password">Confirm password: </label>
-                            <input type="password" name="confirmPassword" id="confirmPassword" />
+                            <label for="password"></label>
+                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
                         </p>
                         <p>
-                            <label for="username">Full name:</label>
-                            <input type="text" name="fullName" id="fullName" placeholder="Peter Inminski" />
+                            <label for="username"></label>
+                            <input type="text" name="fullName" id="fullName" placeholder="Full Name" />
                         </p>
                         <p class="signin button">
                             <input type="submit" value="Register"/>
                         </p>
                         <p class="change_link">
                             Already a member ?
-                            <a href = "<?=APP_ROOT?>/users/login">Login.</a>
+                            <a href = "<?=APP_ROOT?>/users/login">Login</a>
                         </p>
                     </form>
 
