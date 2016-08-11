@@ -24,7 +24,7 @@
         <div class="clr"></div>
     </div><!--/ Codrops top bar -->
     <header>
-        <h1><span>Welcome! Please register to gain full access to all of our features</span></h1>
+        <h1><span>Welcome! Please register to gain full access to all of our features.</span></h1>
     </header>
     <section>
         <div id="container_demo" >
@@ -38,15 +38,15 @@
                         </p>
                         <p>
                             <label for="password"></label>
-                            <input type = "password" name = "password" id = "password" placeholder="Password" />
+                            <input type = "password" name = "password" id = "password" required="required" placeholder="Password" />
                         </p>
                         <p>
                             <label for="password"></label>
-                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
+                            <input type="password" name="confirmPassword" id="confirmPassword" required="required" placeholder="Confirm Password" />
                         </p>
                         <p>
                             <label for="username"></label>
-                            <input type="text" name="fullName" id="fullName" placeholder="Full Name" />
+                            <input type="text" name="fullName" id="fullName" required="required" placeholder="Full Name" />
                         </p>
                         <p class="signin button">
                             <input type="submit" value="Register"/>
