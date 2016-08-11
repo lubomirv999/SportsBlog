@@ -7,6 +7,6 @@
     <input type = "text" id = "username" name = "username" />
     <div><label for="password">Password:</label></div>
     <input type = "password" name = "password" id = "password" >
-    <div><input type="submit" value="Login">
-    <a href="<?=APP_ROOT ?>/users/register">[Go To Register]</a></div>
+    <div><input type="submit" value="Login"></div>
+    <div>New here? <a href="<?=APP_ROOT ?>/users/register">Sign up!</a></div>
 </form>
