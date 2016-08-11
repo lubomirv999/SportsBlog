@@ -33,19 +33,19 @@
                     <form method="post" name="regForm">
                         <h1> Sign up </h1>
                         <p>
-                            <label for="username" class="uname" data-icon="u"></label>
+                            <label for="username" class="username" data-icon="u"></label>
                             <input type = "text" id = "username" name = "username" required="required" placeholder="Username" />
                         </p>
                         <p>
-                            <label for="password" class="youpasswd" data-icon="p"></label>
+                            <label for="password" class="password" data-icon="p"></label>
                             <input type = "password" name = "password" id = "password" placeholder="Password" />
                         </p>
                         <p>
-                            <label for="password" class="youpasswd" data-icon="p"></label>
+                            <label for="password" class="password" data-icon="p"></label>
                             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
                         </p>
                         <p>
-                            <label for="username" class="youname" data-icon="u"></label>
+                            <label for="username" class="username" data-icon="u"></label>
                             <input type="text" name="fullName" id="fullName" placeholder="Full Name" />
                         </p>
                         <p class="signin button">

@@ -26,15 +26,15 @@
         <div id="container_demo" >
             <div id="wrapper">
                 <div id="login" class="animate form">
-                    <form  action="mysuperscript.php" autocomplete="on">
+                    <form  method="post" name = "loginForm">
                         <h1>Log in</h1>
                         <p>
-                            <label for="username" class="uname" data-icon="u" > Username </label>
-                            <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                            <label for="username" class="username" data-icon="u" ></label>
+                            <input id="username" name="username" required="required" type="text" placeholder="Username"/>
                         </p>
                         <p>
-                            <label for="password" class="youpasswd" data-icon="p"> Password </label>
-                            <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
+                            <label for="password" class="password" data-icon="p"></label>
+                            <input id="password" name="password" required="required" type="password" placeholder="Password"/>
                         </p>
                         <p class="keeplogin">
                             <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
@@ -45,7 +45,7 @@
                         </p>
                         <p class="change_link">
                             Not a member yet ?
-                            <a href="#toregister" class="to_register">Join us</a>
+                            <a href="<?=APP_ROOT?>/users/register" class="to_register">Join us</a>
                         </p>
                     </form>
                 </div>
