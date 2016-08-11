@@ -6,12 +6,16 @@ class UsersController extends BaseController
     {
 		if ($this -> isPost) {
 		    $username = $_POST['username'];
-            if (strlen($username)<2||strlen($username)>45) {
+            if (strlen($username)<3||strlen($username)>45) {
                 $this -> setValidationError("username", "Invalid username!");
             }
             $password = $_POST['password'];
-            if (strlen($password)<2 || strlen($password)>50){
+            if (strlen($password)<3 || strlen($password)>50){
                 $this -> setValidationError("password", "Invalid password!");
+            }
+            $confirm_password = $_POST['confirmPassword'];
+            if (strlen($confirm_password)<3 || strlen($confirm_password)>50){
+                $this -> setValidationError("confirmPassword", "Invalid password conformation!");
             }
             $fullName = $_POST['fullName'];
             if (strlen($fullName)>200){
