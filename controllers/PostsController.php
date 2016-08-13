@@ -24,8 +24,18 @@ class PostsController extends BaseController
        {
            $title = $_POST['title'];
            $content = $_POST['content'];
-           $user_id = $_SESSION['userId'];
-           return $this->model->create($title,$content,$user_id);
+           if(strlen($title) == 0) {
+               $this->setValidationError("title", "Title cannot be empty!");
+           }
+           if(strlen($content) ==0) {
+               $this->setValidationError("content", "Content cannot be empty!");
+           }
+            if($this->formValid())
+            {
+                $user_id = $_SESSION['userId'];
+              return $this->model->create($title, $content, $user_id);
+          }
+
        }
 
     }
