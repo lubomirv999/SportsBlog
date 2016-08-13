@@ -14,7 +14,7 @@ class UsersController extends BaseController
                 $this -> setValidationError("password", "Invalid password!");
             }
             $password = $_POST['password'];
-            if ($password == $password){
+            if ($password == $username){
                 $this -> setValidationError("password", "Password and username cannot match!");
             }
             $confirm_password = $_POST['confirmPassword'];
