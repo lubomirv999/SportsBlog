@@ -13,6 +13,10 @@ class UsersController extends BaseController
             if (strlen($password)<3 || strlen($password)>50){
                 $this -> setValidationError("password", "Invalid password!");
             }
+            $password = $_POST['password'];
+            if ($password == $password){
+                $this -> setValidationError("password", "Password and username cannot match!");
+            }
             $confirm_password = $_POST['confirmPassword'];
             if (strlen($confirm_password)<3 || strlen($confirm_password)>50){
                 $this -> setValidationError("confirmPassword", "Invalid password conformation!");
