@@ -2,10 +2,10 @@
 <h1><?=htmlspecialchars($this->title)?></h1>
 <table>
     <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Date</th>
-        <th>Action</th>
+        <th style="color: white">Title</th>
+        <th style="color: white">Content</th>
+        <th style="color: white">Date</th>
+        <th style="color: white">Action</th>
     </tr>
     <?php foreach ($this->posts as $post) : ?>
    <tr>
