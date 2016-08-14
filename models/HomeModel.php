@@ -6,7 +6,7 @@ class HomeModel extends BaseModel
     {
         $statement = self::$db->query(
             "SELECT posts.Id, title, content, FullName ".
-            "FROM posts LEFT JOIN users ON posts.user_id = users.Id ".
+            "FROM posts LEFT JOIN users ON posts.user_id = users.ID ".
             "ORDER BY date DESC LIMIT $count");
         return $statement -> fetch_all(MYSQLI_ASSOC);
     }
