@@ -50,4 +50,19 @@ class PostsController extends BaseController
 
     }
 
+    public function create_comment(int $id)
+    {
+
+    }
+
+    public function edit_comment(int $id)
+    {
+
+    }
+
+    public function delete_comment(int $id)
+    {
+        
+    }
+
 }
