@@ -44,4 +44,10 @@
     <article>
 
     </article>
+    <aside>
+        <h2>Recent Posts</h2>
+        <?php foreach ($this -> sidebarPosts as $post) :?>
+        <a href="<?=APP_ROOT?>/home/view/<?=$post['Id']?>"><?=htmlentities($post['title'])?></a>
+        <?php endforeach ?>
+    </aside>
 </main>

@@ -10,7 +10,10 @@ class HomeModel extends BaseModel
             "ORDER BY date DESC LIMIT $count");
         return $statement -> fetch_all(MYSQLI_ASSOC);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     public function getPostById(int $id){
         $statement = self::$db->prepare(
             "SELECT posts.Id, title, content, date, FullName " .
@@ -22,4 +25,10 @@ class HomeModel extends BaseModel
         return $result;
 
     }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/master
 }

@@ -1,5 +1,14 @@
 <?php
 
+<<<<<<< HEAD
+=======
+/**
+ * Created by PhpStorm.
+ * User: Kamen
+ * Date: 15.8.2016 г.
+ * Time: 15:20
+ */
+>>>>>>> origin/master
 class CommentsController extends BaseController
 {
     function onInit()
