@@ -47,22 +47,22 @@ class PostsController extends BaseController
 
     public function delete(int $id)
     {
-
-    }
-
-    public function create_comment(int $id)
-    {
-
-    }
-
-    public function edit_comment(int $id)
-    {
-
-    }
-
-    public function delete_comment(int $id)
-    {
-        
+        if($this->isPost){
+            if($this->model->delete($id)){
+                $this->addInfoMessage("Post deleted.");
+            }
+            else{
+                $this->addErrorMessage("Error: cannot delete post.");
+            }
+        $this->redirect('posts');
+        } else{
+        $post = $this->model->getById($id);
+            if(!$post){
+                $this->addErrorMessage("Error: post does not exist.");
+                $this->redirect('posts');
+            }
+            $this->post = $post;
+        }
     }
 
 }
