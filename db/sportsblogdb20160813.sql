@@ -16,33 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `categories`
---
-drop database if exists `sportsblogdb`;
-create database `sportsblogdb`;
-use `sportsblogdb`;
-
-DROP TABLE IF EXISTS `categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(150) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `categories`
---
-
-LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Football'),(2,'Athletics'),(3,'Formula 1'),(4,'Volleyball'),(5,'Tennis'),(6,'Swimming'),(7,'Boxing'),(8,'MMA'),(9,'MotoGP'),(10,'Weightlifting'),(11,'Others');
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `comments`
 --
 
@@ -73,6 +46,34 @@ LOCK TABLES `comments` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `contact`
+--
+
+DROP TABLE IF EXISTS `contact`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `date` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `fk_users_idx` (`user_id`),
+  CONSTRAINT `fk_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contact`
+--
+
+LOCK TABLES `contact` WRITE;
+/*!40000 ALTER TABLE `contact` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contact` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `posts`
 --
 
@@ -85,12 +86,9 @@ CREATE TABLE `posts` (
   `content` text NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Id_UNIQUE` (`Id`),
   KEY `Users_idx` (`user_id`),
-  KEY `Categories_idx` (`category_id`),
-  CONSTRAINT `Categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Users` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -115,11 +113,11 @@ CREATE TABLE `users` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(45) NOT NULL,
   `FullName` varchar(200) NOT NULL,
-  `Password` varchar(250) NOT NULL,
+  `Password` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `ID_UNIQUE` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-CREATE UNIQUE INDEX UserName_UNIQUE ON users (UserName);
+  UNIQUE KEY `ID_UNIQUE` (`ID`),
+  UNIQUE KEY `UserName_UNIQUE` (`UserName`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +126,7 @@ CREATE UNIQUE INDEX UserName_UNIQUE ON users (UserName);
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Kamen92','Kamen Minkov','123'),(2,'Bonev88','Iliyan Bonev','321');
+INSERT INTO `users` VALUES (1,'Kamen92','Kamen Minkov','123'),(2,'Bonev88','Iliyan Bonev','321'),(3,'ivaka','Ivaylo','$2y$10$kYM65pKLBxCA0z/1Enr/R.hl0IUIUNDDL3EBe1I.VQf'),(6,'ivo','ivo','$2y$10$uEku0yfi0Co8asKnJFO6Xe7KyjYil/IKKTXEa3Ey5rQ');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -141,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-13 16:56:59
+-- Dump completed on 2016-08-15 18:44:33
