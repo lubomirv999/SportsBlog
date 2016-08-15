@@ -9,7 +9,8 @@
     </div>
     <div>
         <div>
-            <input type="submit" value="Send message">
+            <input type="submit" value="Send message" />
         </div>
     </div>
 </form>
+
