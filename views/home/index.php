@@ -8,8 +8,12 @@
             </div>
             <div class="5u 12u(medium)">
                 <ul>
+                    <?php if (!$this->isLoggedIn) : ?>
                     <li><a href="<?=APP_ROOT?>/users/register" class="button big icon">Register</a></li>
                     <li><a href="#" class="button alt big icon">More info</a></li>
+                    <?php else: ?>
+                    <li><a href="#" class="button alt big icon">More info</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

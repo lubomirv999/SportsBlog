@@ -113,7 +113,7 @@ CREATE TABLE `users` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(45) NOT NULL,
   `FullName` varchar(200) NOT NULL,
-  `Password` varchar(50) NOT NULL,
+  `Password` varchar(250) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`),
   UNIQUE KEY `UserName_UNIQUE` (`UserName`)
