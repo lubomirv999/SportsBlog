@@ -65,4 +65,9 @@ class PostsController extends BaseController
         }
     }
 
+    public function view_post(int $id)
+    {
+      $this->post = $this->model->getById($id);
+    }
+
 }
