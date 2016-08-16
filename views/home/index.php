@@ -11,9 +11,9 @@
                 <ul>
                     <?php if (!$this->isLoggedIn) : ?>
                         <li><a href="<?=APP_ROOT?>/users/register" class="button big icon">Register</a></li>
-                        <li><a href="#" class="button alt big icon">More info</a></li>
+                        <li><a href="<?=APP_ROOT?>/team" class="button alt big icon">About us</a></li>
                     <?php else: ?>
-                        <li><a href="#" class="button alt big icon">More info</a></li>
+                        <li><a href="<?=APP_ROOT?>/team" class="button alt big icon">About us</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
