@@ -29,6 +29,6 @@ class HomeModel extends BaseModel
 =======
 
 
-
+//Just testing wheter i can commit/push.
 >>>>>>> origin/master
 }
