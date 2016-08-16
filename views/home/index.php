@@ -11,17 +11,9 @@
                 <ul>
                     <?php if (!$this->isLoggedIn) : ?>
                         <li><a href="<?=APP_ROOT?>/users/register" class="button big icon">Register</a></li>
+                        <li><a href="#" class="button alt big icon">More info</a></li>
                     <?php else: ?>
-                        <li>
-                            <main id="posts">
-                                <aside>
-                                    <h2>Recent Posts</h2>
-                                    <?php foreach ($this -> sidebarPosts as $post) :?>
-                                        <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>"><?=htmlentities($post['title'])?></a>
-                                    <?php endforeach ?>
-                                </aside>
-                            </main>
-                        </li>
+                        <li><a href="#" class="button alt big icon">More info</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -52,3 +44,15 @@
         </div>
     </div>
 </div>
+
+<main id="posts">
+    <article>
+
+    </article>
+    <aside>
+        <h2>Recent Posts</h2>
+        <?php foreach ($this -> sidebarPosts as $post) :?>
+            <a href="<?=APP_ROOT?>/home/view/<?=$post['Id']?>"><?=htmlentities($post['title'])?></a>
+        <?php endforeach ?>
+    </aside>
+</main>
