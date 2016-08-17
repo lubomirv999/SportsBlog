@@ -20,23 +20,21 @@ class PostsController extends BaseController
 
     public function create()
     {
-       if ($this->isPost)
-       {
-           $title = $_POST['title'];
-           $content = $_POST['content'];
-           if(strlen($title) == 0) {
-               $this->setValidationError("title", "Title cannot be empty!");
-           }
-           if(strlen($content) ==0) {
-               $this->setValidationError("content", "Content cannot be empty!");
-           }
-            if($this->formValid())
-            {
+        if ($this->isPost) {
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+            if (strlen($title) == 0) {
+                $this->setValidationError("title", "Title cannot be empty!");
+            }
+            if (strlen($content) == 0) {
+                $this->setValidationError("content", "Content cannot be empty!");
+            }
+            if ($this->formValid()) {
                 $user_id = $_SESSION['userId'];
-              return $this->model->create($title, $content, $user_id);
-          }
+                return $this->model->create($title, $content, $user_id);
+            }
 
-       }
+        }
 
     }
 
@@ -47,17 +45,16 @@ class PostsController extends BaseController
 
     public function delete(int $id)
     {
-        if($this->isPost){
-            if($this->model->delete($id)){
+        if ($this->isPost) {
+            if ($this->model->delete($id)) {
                 $this->addInfoMessage("Post deleted.");
-            }
-            else{
+            } else {
                 $this->addErrorMessage("Error: cannot delete post.");
             }
-        $this->redirect('posts');
-        } else{
-        $post = $this->model->getById($id);
-            if(!$post){
+            $this->redirect('posts');
+        } else {
+            $post = $this->model->getById($id);
+            if (!$post) {
                 $this->addErrorMessage("Error: post does not exist.");
                 $this->redirect('posts');
             }
@@ -67,7 +64,33 @@ class PostsController extends BaseController
 
     public function view_post(int $id)
     {
-      $this->post = $this->model->getById($id);
+        $this->post = $this->model->getById($id);
+        $listComments = $this->model->listComments($id);
+        $this->comments = $listComments;
+
+    }
+
+    public function createComment(int $postId)
+    {
+        if ($this->isPost) {
+            $content = $_POST['comment'];
+            if (strlen($content) == 0) {
+                $this->setValidationError("content", "Comment cannot be empty!");
+            }
+            if ($this->formValid()) {
+                $user_id = $_SESSION['userId'];
+                $this->addInfoMessage("You have commented successful!");
+                $this->model->create_comment($content, $user_id, $postId);
+                $arrayId = [$postId];
+                $this->redirect('posts','view_post',$arrayId);
+            }
+        }
+
+    }
+
+    public function delete_comment(int $id)
+    {
+
     }
 
 }

@@ -77,8 +77,8 @@ abstract class BaseController
             $url .= '/' . urlencode($actionName);
         }
         if ($params != null) {
-            $encodedParams = array_map($params, 'urlencode');
-            $url .= implode('/', $encodedParams);
+            $encodedParams = array_map( 'urlencode',$params);
+            $url .= '/'.implode('/', $encodedParams);
         }
         $this->redirectToUrl($url);
     }
