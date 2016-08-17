@@ -1,0 +1,73 @@
+Your project should implement at least the following functionality:
+•	User registration, login and logout.
+•	View some content (e.g. blog articles, listings, photos, issues, publications).
+•	Create new content (e.g. post new blog article, post new listing, upload new photo, create new issue).
+
+Your project should keep its data in a database or in a backend service:
+•	Use at least 2 tables (collections) with a relationship, e.g. users and blog posts.
+•	Use a database (like MySQL or MongoDB) or cloud-based backend (like Kinvey, MongoLab or RedisLab).
+Your project should implement at least 4 pages (views).
+
+Requirements for the Team Projects
+Larger teams should develop larger projects. The minimum number of application pages and database tables required for the project
+depend on the count of team members.
+•	Minimum (3 + team_members_count) pages (views).
+•	Minimum team_members_count database tables (or data collections / entities).
+•	Implement user registration, login, view content, create content.
+•	Implement more functionality by choice. Larger teams should implement more functionality.
+
+
+Commit Logs
+•	Each team member should have at least 5 commits (changes) in the project repository.
+•	Please commit every day during the project development to demonstrate your work progress.
+•	More commits (especially in more than the last 1-2 days) are better during the project assessment.
+
+
+Public Project Defense
+Each team will have to deliver a public defense of its work in front of the SoftUni trainers.
+
+The teams will have only ~15 minutes for the following:
+•	Demonstrate the application’s functionality (very shortly).
+•	Show the source code and explain briefly how it works.
+At least one team member should come at the defense.
+
+Hints for better presentation:
+•	Be well prepared for presenting maximum of your work for minimum time.
+•	Open all project assets beforehand to save time: open your site in the browser, login and open the user / admin panel in another browser, open your GitHub project page to show the commit logs, etc.
+•	Test how to connect your laptop with the multimedia projector before the defense to save time.
+
+Assessment Criteria
+
+•	Functionality – 0…70
+o	What is implemented? Does it work correctly? Does it have intuitive UI?
+o	How much effort you have put in this project?
+o	Is the functionality enough for the team size (larger teams should deliver more)?
+o	What portion of the work is own code written by your team and what is ready-to-use framework?
+
+•	Teamwork – 0…30
+o	Individual projects show the commit logs in the source control repository.
+o	Team projects show the commit logs and explain the role of each team member.
+
+•	Bonus – 0...10
+o	Bonus point are given for implementing more than expected.
+
+
+
+Blog
+Design and implement a simple blog system.
+
+Required functionalities:
+•	User registration (and optionally user profiles) / login / logout.
+•	View all posts (optionally with paging), without login.
+•	Create new post by the blog owner (after login). Optionally, each post may have tags.
+
+Optional functionalities:
+•	Add comments for every post by visitors – each visitor must fill out his name, email (optionally) and comment text.
+•	Implement a sidebar holding a list of posts sorted by month / year / etc. and a list of the most popular tags.
+•	Counter of visits for each post.
+•	Functionality for searching by tags.
+•	Admin panel: add / edit / delete posts, comments, tags, etc.
+
+
+Deadline
+All projects should be submitted not later than 31-August-2016.
