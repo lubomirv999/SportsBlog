@@ -1,1 +1,1 @@
-<p align="center">It's empty here.</p>
+<h2 align="center">It's empty here.</h2>

@@ -40,7 +40,41 @@ class PostsController extends BaseController
 
     public function edit(int $id)
     {
+        if($this->isPost){
+            $title = $_POST['title'];
+            if(strlen($title) < 1){
+                $this->setValidationError("title", "This field cannot be empty!");
+            }
+            $content = $_POST['content'];
+            if(strlen($content) < 1){
+                $this->setValidationError("content", "This field cannot be empty!");
+            }
+            $date = $_POST['date'];
+            $dateRegex = '/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/';
+            if(!preg_match($dateRegex, $date)){
+                $this->setValidationError("date", "Invalid date.");
+            }
+            $user_id = $_POST['user_id'];
+            if ($user_id <= 0 || $user_id > 1000000){
+                $this->setValidationError("user_id", "Invalid author ID.");
+            }
+            if($this->formValid()){
+                if($this->model->edit($id,$title,$content,$date,$user_id)){
+                    $this->addInfoMessage("Post edited successfuly.");
+                }
+                else{
+                    $this->addErrorMessage("Post can not be edited!");
+                }
+                $this->redirect('posts');
+            }
 
+            $post = $this->model->getById($id);
+            if(!$post){
+                $this->addErrorMessage("The post you are trying to edit does not exist.");
+                $this->redirect('posts');
+            }
+            $this->post = $post;
+        }
     }
 
     public function delete(int $id)

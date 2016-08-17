@@ -36,10 +36,14 @@ class PostsModel extends BaseModel
         return self::$db->insert_id;
     }
 
-    public function edit(string $id,string $title, string $content, int $user_id) : bool
+    public function edit(string $id,string $title, string $content, string $date, int $user_id) : bool
     {
-
+        $statement = self::$db->prepare("UPDATE posts SET title = ?, content = ?, date = ?, user_id = ? WHERE id = ?");
+        $statement->bind_param("sssii", $title, $content, $date, $user_id, $id);
+        $statement->execute();
+        return $statement->affected_rows >= 0;
     }
+
 
     public function delete(int $id) : bool
     {
