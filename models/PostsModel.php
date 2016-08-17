@@ -10,7 +10,8 @@ class PostsModel extends BaseModel
 {
     public function getAll() : array
     {
-     $statement = self::$db->query("SELECT * FROM posts ORDER BY date DESC");
+     $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date " .
+         "FROM posts LEFT JOIN users ON posts.user_id = users.ID ");
         return $statement->fetch_all(MYSQLI_ASSOC); 
 
     }

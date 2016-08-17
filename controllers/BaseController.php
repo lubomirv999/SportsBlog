@@ -48,7 +48,7 @@ abstract class BaseController
             if ($viewName == null) {
                 $viewName = $this->actionName;
             }
-            $viewFileName = 'views/' . $this->controllerName . '/' . $viewName . '.php';
+            $viewFileName = 'views/' . $this->controllerName . '/' . $viewName . '.php' ;
             include($viewFileName);
             $htmlFromView = ob_get_contents();
             ob_end_clean();
