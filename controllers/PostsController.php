@@ -32,6 +32,7 @@ class PostsController extends BaseController
             if ($this->formValid()) {
                 $user_id = $_SESSION['userId'];
                 return $this->model->create($title, $content, $user_id);
+                $this->redirect('posts');
             }
 
         }
