@@ -23,6 +23,7 @@ drop database if exists `sportsblogdb`;
 create database `sportsblogdb`;
 use `sportsblogdb`;
 
+
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -58,9 +59,9 @@ CREATE TABLE `comments` (
   PRIMARY KEY (`ID`),
   KEY `Posts_idx` (`post_id`),
   KEY `Users_idx` (`user_id`),
-  CONSTRAINT `Posts` FOREIGN KEY (`post_id`) REFERENCES `posts` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Posts` FOREIGN KEY (`post_id`) REFERENCES `posts` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `UsersFromComments` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +70,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,'Comment','2016-08-16 18:28:50',1,12),(2,'kurkur','2016-08-16 18:31:23',1,12),(3,'hjfjyfyjghv','2016-08-16 18:45:51',1,12),(4,'kak','2016-08-17 13:49:00',1,12),(5,'lkflflinfbplf','2016-08-17 14:09:27',1,12),(6,'lakisjdiuhf','2016-08-17 14:16:35',1,12),(7,'lakisjdiuhf','2016-08-17 14:17:08',1,12),(8,'Педераст','2016-08-17 14:17:26',1,12),(9,'kakakakaka','2016-08-17 18:16:45',2,12),(10,'kjajajjsjs','2016-08-17 18:20:03',2,12),(11,'kakakakak','2016-08-17 18:21:39',2,12),(12,'kakakak','2016-08-17 18:22:50',2,12),(13,'fgfdbg','2016-08-17 18:38:31',1,12),(14,'ебане','2016-08-17 19:02:05',2,12),(15,'kakakaka','2016-08-18 10:49:59',1,12),(16,'aaaaaaaaaaaaaaaaaaaa','2016-08-18 10:50:07',1,12);
+INSERT INTO `comments` VALUES (9,'kakakakaka','2016-08-17 18:16:45',2,12),(10,'kjajajjsjs','2016-08-17 18:20:03',2,12),(11,'kakakakak','2016-08-17 18:21:39',2,12),(12,'kakakak','2016-08-17 18:22:50',2,12),(17,'Много хубав пост','2016-08-18 10:59:59',2,12),(19,'Alisa\'s comment\r\n','2016-08-18 13:51:41',2,12);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-18 10:52:51
+-- Dump completed on 2016-08-18 13:54:38
