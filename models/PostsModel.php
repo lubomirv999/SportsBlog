@@ -19,7 +19,9 @@ class PostsModel extends BaseModel
 
     public function getById(int $id)
     {
-        $statement = self::$db->prepare("SELECT * FROM posts WHERE id = ?");
+        $statement = self::$db->prepare("SELECT users.UserName, posts.user_id, posts.date, posts.title, posts.content, posts.Id ".
+            "FROM posts LEFT JOIN users ON posts.user_id = users.ID ".
+            "WHERE posts.Id = ? ");
         $statement->bind_param("i",$id);
         $statement->execute();
         $result = $statement->get_result()->fetch_assoc();

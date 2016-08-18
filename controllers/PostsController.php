@@ -31,10 +31,13 @@ class PostsController extends BaseController
             }
             if ($this->formValid()) {
                 $user_id = $_SESSION['userId'];
-                return $this->model->create($title, $content, $user_id);
-                $this->redirect('posts');
+                if($this->model->create($title, $content, $user_id)) {
+                    $this->addInfoMessage("Post created successfully.");
+                    $this->redirect('posts');
+                } else {
+                    $this->addErrorMessage("Cannot create post!");
+                }
             }
-
         }
 
     }
