@@ -11,13 +11,8 @@ class PostsModel extends BaseModel
     public function getAll() : array
     {
      $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date " .
-<<<<<<< Updated upstream
-         "FROM posts LEFT JOIN users ON posts.user_id = users.ID ".
-         "ORDER BY posts.date DESC ");
-=======
          "FROM posts LEFT JOIN users ON posts.user_id = users.ID " . "ORDER BY date DESC ");
->>>>>>> Stashed changes
-        return $statement->fetch_all(MYSQLI_ASSOC); 
+        return $statement->fetch_all(MYSQLI_ASSOC);
 
     }
 
@@ -74,20 +69,18 @@ class PostsModel extends BaseModel
     public function listComments ($id)
     {
         $statement = self::$db->prepare(
-            "SELECT post_id, comments.content, comments.date, users.UserName, comments.ID ".
+            "SELECT post_id, comments.content, comments.date, users.UserName ".
             "FROM comments LEFT JOIN posts ON comments.post_id = posts.Id LEFT JOIN users ON comments.user_id = users.ID ".
             "WHERE posts.Id = ? ".
             "ORDER BY date DESC ");
         $statement-> bind_param("i", $id);
         $statement->execute();
+
         return $statement->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function deleteComment(int $id)
+    public function delete_comment(int $id)
     {
-        $statement = self::$db-> prepare("DELETE FROM comments WHERE comments.ID=? ");
-        $statement -> bind_param("i", $id);
-        $statement-> execute();
-        return $statement->affected_rows==1;
+
     }
 }
