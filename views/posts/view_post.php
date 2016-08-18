@@ -24,10 +24,13 @@
 </form>
 <div>
     <?php foreach ($this-> comments as $comment): ?>
+        <form action="<?= APP_ROOT ?>/posts/deleteComment/<?= $this->post['Id']?>/<?=$comment['ID']?>" method="post">
        <div class="date"><i>Commented on:</i>
         <?= (new DateTime($comment['date']))->format('d-M-Y') ?><i> by </i>
         <?= htmlspecialchars($comment['UserName']) ?>
         <p class="content"><?= $comment['content'] ?></p>
+           <div><input type="submit" name="deleteComment" id="deleteComment" value="Delete"></div>
        </div>
+        </form>
     <?php endforeach ?>
 </div>

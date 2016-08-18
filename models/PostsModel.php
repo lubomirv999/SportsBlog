@@ -69,18 +69,20 @@ class PostsModel extends BaseModel
     public function listComments ($id)
     {
         $statement = self::$db->prepare(
-            "SELECT post_id, comments.content, comments.date, users.UserName ".
+            "SELECT post_id, comments.content, comments.date, users.UserName, comments.ID ".
             "FROM comments LEFT JOIN posts ON comments.post_id = posts.Id LEFT JOIN users ON comments.user_id = users.ID ".
             "WHERE posts.Id = ? ".
             "ORDER BY date DESC ");
         $statement-> bind_param("i", $id);
         $statement->execute();
-
         return $statement->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function delete_comment(int $id)
+    public function deleteComment(int $id)
     {
-
+        $statement = self::$db-> prepare("DELETE FROM comments WHERE comments.ID=? ");
+        $statement -> bind_param("i", $id);
+        $statement-> execute();
+        return $statement->affected_rows==1;
     }
 }
