@@ -71,14 +71,13 @@ class PostsController extends BaseController
                 }
                 $this->redirect('posts');
             }
-
-            $post = $this->model->getById($id);
-            if(!$post){
-                $this->addErrorMessage("The post you are trying to edit does not exist.");
-                $this->redirect('posts');
-            }
-            $this->post = $post;
         }
+        $post = $this->model->getById($id);
+        if(!$post){
+            $this->addErrorMessage("The post you are trying to edit does not exist.");
+            $this->redirect('posts');
+        }
+        $this->post = $post;
     }
 
     public function delete(int $id)
