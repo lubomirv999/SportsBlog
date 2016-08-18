@@ -11,8 +11,12 @@ class PostsModel extends BaseModel
     public function getAll() : array
     {
      $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date " .
+<<<<<<< Updated upstream
          "FROM posts LEFT JOIN users ON posts.user_id = users.ID ".
          "ORDER BY posts.date DESC ");
+=======
+         "FROM posts LEFT JOIN users ON posts.user_id = users.ID " . "ORDER BY date DESC ");
+>>>>>>> Stashed changes
         return $statement->fetch_all(MYSQLI_ASSOC); 
 
     }
