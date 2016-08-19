@@ -96,4 +96,14 @@ class PostsModel extends BaseModel
         $statement->execute();
         return $statement->affected_rows == 1;
     }
+    
+    public function getUserIdByCommentId(int $id)
+    {
+        $statement = self::$db->prepare("SELECT comments.user_id FROM comments WHERE ID = ? ");
+        $statement -> bind_param('i', $id);
+        $statement->execute();
+        $resultArr = $statement->get_result()->fetch_assoc();
+        $result = $resultArr['user_id'];
+        return $result;
+    }
 }

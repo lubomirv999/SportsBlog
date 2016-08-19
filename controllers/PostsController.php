@@ -128,12 +128,18 @@ class PostsController extends BaseController
 
     public function deleteComment(int $postId, int $commentId)
     {
+        $postIdArray = [$postId];
+        if($this->model->getUserIdByCommentId($commentId)!=intval($_SESSION['userId'])) {
+            $this->addErrorMessage("You cannot delete this comment!");
+            $this->redirect('posts','view_post',$postIdArray);
+        }
         if ($this->model->deleteComment($commentId)) {
             $this->addInfoMessage("Comment was deleted successfully.");
         } else {
             $this->addErrorMessage("Comment cannot be deleted!");
         }
-        $postIdArray = [$postId];
+
         $this->redirect('posts','view_post',$postIdArray);
+
     }
 }
