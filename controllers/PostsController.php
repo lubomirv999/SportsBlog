@@ -140,6 +140,5 @@ class PostsController extends BaseController
         }
 
         $this->redirect('posts','view_post',$postIdArray);
-
     }
 }
