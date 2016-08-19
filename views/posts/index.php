@@ -20,7 +20,7 @@
                                     <td>
                                         <a href="<?=APP_ROOT?>/posts/edit/<?=$post['Id']?>" >Edit</a>
                                         <a href="<?=APP_ROOT?>/posts/delete/<?=$post['Id']?>" >Delete</a>
-                                        <a href="<?=APP_ROOT?>/posts/comment/<?=$post['Id']?>" >Comment</a>
+                                        <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>" >Comment</a>
                                         <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>">View Post</a>
                                     </td>
                                 </tr>
