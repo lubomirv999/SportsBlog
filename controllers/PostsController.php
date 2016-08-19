@@ -44,6 +44,10 @@ class PostsController extends BaseController
 
     public function edit(int $id)
     {
+        if ($this->model->getUserIdByPostId($id)!=intval($_SESSION['userId'])){
+            $this->addErrorMessage("You cannot edit this post!");
+            $this->redirect('posts');
+            }
         if($this->isPost){
             $title = $_POST['title'];
             if(strlen($title) < 1){
