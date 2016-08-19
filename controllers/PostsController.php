@@ -76,9 +76,13 @@ class PostsController extends BaseController
     public function delete(int $id)
     {
         if ($this->isPost) {
+            if ($this->model->getUserIdByPostId($id)==intval($_SESSION['userId'])){
             if ($this->model->delete($id)) {
                 $this->addInfoMessage("Post deleted.");
             } else {
+                $this->addErrorMessage("Error: cannot delete post.");
+            }
+            }else {
                 $this->addErrorMessage("Error: cannot delete post.");
             }
             $this->redirect('posts');

@@ -15,6 +15,16 @@ class PostsModel extends BaseModel
         return $statement->fetch_all(MYSQLI_ASSOC);
 
     }
+    
+    public function getUserIdByPostId(int $id)
+    {
+        $statement = self::$db->prepare("SELECT posts.user_id FROM posts WHERE Id = ? ");
+        $statement -> bind_param('i', $id);
+        $statement->execute();
+        $resultArr = $statement->get_result()->fetch_assoc();
+        $result = $resultArr['user_id'];
+        return $result;
+    }
 
     public function getById(int $id)
     {
