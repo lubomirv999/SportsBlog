@@ -2,9 +2,10 @@
 
 <h1><?=htmlspecialchars($this->title)?></h1>
 
-<form method="post" action="<?=APP_ROOT ?>/posts/edit/<?=$this->post['Id']?>">
+<form method="post">
     <div>Title:</div>
-    <input type="text" name="title" value="<?=htmlspecialchars($this->post['title'])?>" />
+    <input type="text" name="title" value=" <?= htmlspecialchars($this->post['title'])?>" />
+
     <div>Content:</div>
     <textarea rows="5" name="content"> <?= htmlspecialchars($this->post['content'])?> </textarea>
     <div>Date:</div>

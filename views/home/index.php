@@ -35,7 +35,7 @@
                                     <i>by </i><?=htmlentities($post['FullName'])?>
                                 </div>
                             </header>
-                            <p class="content"><?= $post['content']?></p>
+                            <p class="content"><?=cutLongText($post['content'])?></p>
                         </div>
                     </section>
                 </div>

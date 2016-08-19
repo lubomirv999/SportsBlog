@@ -19,6 +19,34 @@
 		vertical-align: baseline;
 	}
 
+	article {
+		background-color: lightgrey;
+		border-radius: 7px;
+		font-family: "Arial", Arial, sans-serif;
+		font-style: italic;
+		font-weight: bold;
+		margin: 20px;
+	}
+
+	article>h2>a{
+		color: darkslategrey;
+		margin: 10px;
+	}
+
+	article>span>i{
+		color: darkslategrey;
+		margin: 10px;
+	}
+
+	article>p>a{
+		color: darkslategrey;
+		margin: 10px;
+	}
+
+	article>table{
+		margin: 10px;
+	}
+
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}

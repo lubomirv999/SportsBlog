@@ -82,14 +82,12 @@ function __autoload(string $class_name)
     }
 }
 
-function cutLongText(string $text, int $maxSize=201, bool $htmlEscape = true) : string
+function cutLongText(string $text, int $maxSize=201) : string
 {
     $append = '';
     if (strlen($text) > $maxSize) {
         $text = substr($text, 0, $maxSize);
         $append = '&hellip;';
     }
-    if ($htmlEscape)
-        $text = htmlspecialchars($text);
-    return $text . $append;
+       return $text . $append;
 }
