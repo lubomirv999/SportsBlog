@@ -117,7 +117,7 @@ class PostsController extends BaseController
             }
             if ($this->formValid()) {
                 $user_id = $_SESSION['userId'];
-                $this->addInfoMessage("You have commented successful!");
+                $this->addInfoMessage("You have commented successfully!");
                 $this->model->create_comment($content, $user_id, $postId);
                 $arrayId = [$postId];
                 $this->redirect('posts','view_post',$arrayId);

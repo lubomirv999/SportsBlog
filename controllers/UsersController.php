@@ -30,11 +30,11 @@ class UsersController extends BaseController
                 if ($userId) {
                     $_SESSION['username'] = $username;
                     $_SESSION['userId'] = $userId;
-                    $this->addInfoMessage("Register successful");
+                    $this->addInfoMessage("Registration successful");
                     return $this->redirect("posts");
                 }
                 else {
-                    $this -> addErrorMessage("Error: register failed!");
+                    $this -> addErrorMessage("Error: registration failed!");
 
                 }
             }

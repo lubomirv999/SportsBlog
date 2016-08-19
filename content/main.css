@@ -87,6 +87,10 @@
 		display: block;
 	}
 
+	div.inner>header>h2.title{
+		font-size: 25pt;
+	}
+
 	body {
 		line-height: 1;
 	}
@@ -2105,7 +2109,7 @@
 		}
 
 	#copyright {
-		color: #aaa;
+		color: blue;
 		padding: 4em 0 0 0;
 		text-align: center;
 	}
