@@ -8,5 +8,4 @@
     <div>Date:</div>
     <input type="text" value="<?=htmlspecialchars($this->post['date'])?>" disabled/>
     <div><input type="submit" value="Delete"/><a href="<?=APP_ROOT?>/posts">[Cancel]</a> </div>
-    
 </form>

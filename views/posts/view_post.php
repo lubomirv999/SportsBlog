@@ -1,6 +1,5 @@
+
 <?php $this->title = $this->post['title'] ?>
-
-
 <main id="posts">
     <article>
         <h2><?= htmlspecialchars($this->title) ?></h2>
@@ -10,7 +9,6 @@
         <p class="content"><?= $this->post['content'] ?></p>
     </article>
 </main>
-<p>Comments:</p>
 <form action="<?= APP_ROOT ?>/posts/createComment/<?= $this->post['Id']?>" method="post">
     <div>
         <div>
@@ -24,6 +22,7 @@
     </div>
 </form>
 <div>
+    <p>Comments:</p>
     <?php foreach ($this-> comments as $comment): ?>
         <form action="<?= APP_ROOT ?>/posts/deleteComment/<?= $this->post['Id']?>/<?=$comment['ID']?>" method="post">
        <div class="date"><i>Commented on:</i>

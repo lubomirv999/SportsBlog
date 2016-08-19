@@ -1,3 +1,4 @@
+<?php $this->title = 'Contact us'; ?>
 <form method="post" action="<?=APP_ROOT?>/contact/send">
     <div>Want to get in touch with us? Leave us a message below to contact the team and we will get back to you within 24 hours!</div>
     <br>

@@ -24,4 +24,8 @@ class UsersModel extends BaseModel
             return $result['ID'];
         return false;
     }
+     public function listUsers(){
+         $statement = self::$db->query("SELECT users.UserName, users.FullName FROM users ");
+         return $statement->fetch_all(MYSQLI_ASSOC);
+     }
 }

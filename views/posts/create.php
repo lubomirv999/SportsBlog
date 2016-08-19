@@ -1,3 +1,4 @@
+<?php $this->title = 'Create Post'; ?>
 <script type="text/javascript" src="<?=APP_ROOT?>/ckeditor/ckeditor.js"></script>
 
 <form name="createPost" method="post" action="<?=APP_ROOT?>/posts/create">

@@ -66,4 +66,9 @@ class UsersController extends BaseController
         $this->addInfoMessage("Logout successful!");
         $this->redirect("home");
     }
+
+    public function index ()
+    {
+        $this->users=$this->model->listUsers();
+    }
 }
