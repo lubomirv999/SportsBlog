@@ -8,11 +8,7 @@
 
     <div>Content:</div>
     <textarea rows="5" name="content"> <?= htmlspecialchars($this->post['content'])?> </textarea>
-    <div>Date:</div>
-    <input type="text" name="date" value="<?=htmlspecialchars($this->post['date'])?>" />
-    <div>User ID:</div>
-    <input type="text" name="user_id" value="<?=htmlspecialchars($this->post['user_id'])?>" />
-    <div>
+
         <input type="submit" value="Edit">
         <a href="<?=APP_ROOT?>/posts">Cancel</a>
     </div>

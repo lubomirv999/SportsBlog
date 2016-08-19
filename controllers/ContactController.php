@@ -15,13 +15,10 @@ class ContactController extends BaseController
                 $user_id = $_SESSION['userId'];
                 $this->addInfoMessage("Thank you for your feedback! We will contact you as soon as possible.");
                 return $this->model->send($content, $user_id);
-                header('Location: /');
             }
             else{
                 $this->addErrorMessage("You can't leave a blank field.");
             }
-
         }
-
     }
 }

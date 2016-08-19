@@ -53,17 +53,9 @@ class PostsController extends BaseController
             if(strlen($content) < 1){
                 $this->setValidationError("content", "This field cannot be empty!");
             }
-            $date = $_POST['date'];
-            $dateRegex = '/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/';
-            if(!preg_match($dateRegex, $date)){
-                $this->setValidationError("date", "Invalid date.");
-            }
-            $user_id = $_POST['user_id'];
-            if ($user_id <= 0 || $user_id > 1000000){
-                $this->setValidationError("user_id", "Invalid author ID.");
-            }
+
             if($this->formValid()){
-                if($this->model->edit($id,$title,$content,$date,$user_id)){
+                if($this->model->edit($id,$title,$content)){
                     $this->addInfoMessage("Post edited successfuly.");
                 }
                 else{
@@ -72,6 +64,7 @@ class PostsController extends BaseController
                 $this->redirect('posts');
             }
         }
+
         $post = $this->model->getById($id);
         if(!$post){
             $this->addErrorMessage("The post you are trying to edit does not exist.");
