@@ -9,20 +9,19 @@
 
                         <!-- Content -->
                         <article>
-
                             <h2><a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>"><?= htmlspecialchars($post['title']) ?></a></h2>
                             <span><i>Posted on</i>
                                 <?=(new DateTime($post['date']))->format('d-M-Y')?>
                                 <i>by </i><?=htmlentities($post['FullName'])?>
                             </span>
-                            <p><a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>"><?= cutLongText($post['content'])?></a></p>
+                            <p><?= cutLongText($post['content'])?></p>
                             <table>
                                 <tr>
                                     <td>
-                                        <a href="<?=APP_ROOT?>/posts/edit/<?=$post['Id']?>" >[Edit]</a>
-                                        <a href="<?=APP_ROOT?>/posts/delete/<?=$post['Id']?>" >[Delete]</a>
-                                        <a href="<?=APP_ROOT?>/posts/comment/<?=$post['Id']?>" >[Comment]</a>
-                                        <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>">[View Post]</a>
+                                        <a href="<?=APP_ROOT?>/posts/edit/<?=$post['Id']?>" >Edit</a>
+                                        <a href="<?=APP_ROOT?>/posts/delete/<?=$post['Id']?>" >Delete</a>
+                                        <a href="<?=APP_ROOT?>/posts/comment/<?=$post['Id']?>" >Comment</a>
+                                        <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>">View Post</a>
                                     </td>
                                 </tr>
                             </table>

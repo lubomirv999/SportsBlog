@@ -19,32 +19,68 @@
 		vertical-align: baseline;
 	}
 
+    /*NOTIFICATION SETTINGS*/
+
+    ul#messages li {
+        display: block;
+        width: 80%;
+        margin: 5px auto;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    ul#messages li.info {
+        background: #1295C6;
+        color: #000;
+        font-size: 25px;
+    }
+
+    ul#messages li.error {
+        background: #d00;
+        color: white;
+        font-size: 25px;
+    }
+
+    .validation-error {
+        vertical-align: top;
+        margin-left: 10px;
+        color: red;
+        font-size: 25px;
+    }
+
 	article {
-		background-color: lightgrey;
+		background-color: #ececec;
 		border-radius: 7px;
 		font-family: "Arial", Arial, sans-serif;
-		font-style: italic;
-		font-weight: bold;
-		margin: 20px;
+		margin: 15px;
 	}
 
-	article>h2>a{
+	article>h2{
+        font-family: "Century Schoolbook", Georgia, Times, serif;
+        color: #444;
+        margin: 0;
+        padding: 0px 0px 6px 0px;
+        font-size: 51px;
+        line-height: 44px;
+        letter-spacing: -2px;
+        font-weight: bold;
+	}
+
+	article>span{
 		color: darkslategrey;
 		margin: 10px;
 	}
 
-	article>span>i{
-		color: darkslategrey;
-		margin: 10px;
-	}
-
-	article>p>a{
-		color: darkslategrey;
-		margin: 10px;
+	article>p{
+        color: #000000;
+        font-size: 15px;
+        margin: 10px;
+        font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
 	}
 
 	article>table{
-		margin: 10px;
+		margin: 5px;
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -2615,5 +2651,7 @@
 			#copyright {
 				text-align: left;
 			}
+
+
 
 	}

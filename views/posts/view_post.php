@@ -1,8 +1,9 @@
 <?php $this->title = $this->post['title'] ?>
 
-<h1><?= htmlspecialchars($this->title) ?></h1>
+
 <main id="posts">
     <article>
+        <h2><?= htmlspecialchars($this->title) ?></h2>
         <div><i>Published on: </i>
             <?= (new DateTime($this->post['date']))->format('d-M-y') ?>
             <i>by</i> <?= htmlentities($this->post['UserName'])?></div>
