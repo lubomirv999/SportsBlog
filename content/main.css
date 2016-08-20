@@ -92,26 +92,40 @@
 	}
 
 	/* User page layour */
-	div>h2 {
-		margin: 0;
-		padding: 0;
-		display: inline-block;
+
+	table {
+		border-collapse: collapse;
 	}
 
-	div>h2>span{
-		font-size: 20pt;
+	table, td, th {
+		border: 2px solid black;
+		text-align: center;
+	}
+
+	td>a:hover{
+		border-radius: 3px;
+		background-color: lightseagreen;
+		display: block;
+	}
+
+	table {
+		width: 100%;
+	}
+
+	th {
+		font-size: 17pt;
+		font-family: "Arial", Arial, sans-serif;
 		color: lightseagreen;
-		margin: 10px;
 	}
 
-	div>h3>span{
+	td {
 		font-size: 15pt;
-		color: lightseagreen;
-		margin: 10px;
+		font-family: "Arial", Arial, sans-serif;
+		color: black;
 	}
 
-	div>h2>a{
-		font-size: 20pt;
+	td>a {
+		color: black;
 	}
 
 
