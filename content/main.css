@@ -137,7 +137,15 @@
 		border-color: #ececec;
 	}
 
+	/* Contact page layour */
 
+	div#contact{
+		color: grey;
+		font-size: 17pt;
+		font-family: "Arial", Arial, sans-serif;
+		padding: 5px;
+
+	}
 
 	body {
 		line-height: 1;
