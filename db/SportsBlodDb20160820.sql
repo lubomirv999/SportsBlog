@@ -19,6 +19,10 @@
 -- Table structure for table `categories`
 --
 
+drop database if exists `sportsblogdb`;
+create database `sportsblogdb`;
+use `sportsblogdb`;
+
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
