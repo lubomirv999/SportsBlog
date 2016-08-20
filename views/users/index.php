@@ -2,8 +2,8 @@
 <form action="">
 <?php foreach ($this->users as $user) : ?>
 <div>
- <h2>Username: <a href="<?=APP_ROOT?>/posts"><?=$user['UserName']?></a></h2>
-  <h3>Full name:<?=$user['FullName']?></h3>
+ <h2><span>Username: </span><a href="<?=APP_ROOT?>/posts"><?=$user['UserName']?></a></h2><br>
+  <h3><span>Full name: </span><?=$user['FullName']?></h3><br>
 </div>
 <?php endforeach;?>
 </form>

@@ -91,6 +91,30 @@
 		font-size: 25pt;
 	}
 
+	/* User page layour */
+	div>h2 {
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+	}
+
+	div>h2>span{
+		font-size: 20pt;
+		color: lightseagreen;
+		margin: 10px;
+	}
+
+	div>h3>span{
+		font-size: 15pt;
+		color: lightseagreen;
+		margin: 10px;
+	}
+
+	div>h2>a{
+		font-size: 20pt;
+	}
+
+
 	body {
 		line-height: 1;
 	}
