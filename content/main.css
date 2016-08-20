@@ -102,10 +102,8 @@
 		text-align: center;
 	}
 
-	td>a:hover{
-		border-radius: 3px;
-		background-color: lightseagreen;
-		display: block;
+	td>a {
+		color: black;
 	}
 
 	table {
@@ -124,9 +122,21 @@
 		color: black;
 	}
 
-	td>a {
-		color: black;
+	form>table>tbody>tr>td>a:hover{
+		border-radius: 3px;
+		background-color: lightseagreen;
+		display: block;
 	}
+
+	/* post layout fix */
+
+	article>table>tbody>tr>td{
+		font-size: 13pt;
+		font-family: "Arial", Arial, sans-serif;
+		text-align: left;
+		border-color: #ececec;
+	}
+
 
 
 	body {
