@@ -5,19 +5,18 @@ class UsersController extends BaseController
     public function register()
     {
 		if ($this -> isPost) {
-		    $username = $_POST['username'];
+		    $username = trim($_POST['username']);
             if (strlen($username)<3||strlen($username)>45) {
                 $this -> setValidationError("username", "Invalid username!");
             }
-            $password = $_POST['password'];
+            $password = trim($_POST['password']);
             if (strlen($password)<3 || strlen($password)>50){
                 $this -> setValidationError("password", "Invalid password!");
             }
-            $password = $_POST['password'];
             if ($password == $username){
                 $this -> setValidationError("password", "Password and username cannot match!");
             }
-            $confirm_password = $_POST['confirmPassword'];
+            $confirm_password = trim($_POST['confirmPassword']);
             if (strlen($confirm_password)<3 || strlen($confirm_password)>50){
                 $this -> setValidationError("confirmPassword", "Invalid password conformation!");
             }
