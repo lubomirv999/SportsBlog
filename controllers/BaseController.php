@@ -10,7 +10,6 @@ abstract class BaseController
     protected $title = "";
     protected $model;
     protected $validationErrors = [];
-    protected $isDeleteActive = true;
 
     function __construct(string $controllerName, string $actionName)
     {

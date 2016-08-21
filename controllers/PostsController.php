@@ -111,15 +111,16 @@ class PostsController extends BaseController
     public function createComment(int $postId)
     {
         if ($this->isPost) {
+            $arrayId = [$postId];
             $content = $_POST['comment'];
             if (strlen($content) == 0) {
-                $this->setValidationError("content", "Comment cannot be empty!");
+                $this->addErrorMessage("Comment cannot be empty!");
+                $this->redirect('posts','view_post',$arrayId);
             }
             if ($this->formValid()) {
                 $user_id = $_SESSION['userId'];
                 $this->addInfoMessage("You have commented successfully!");
                 $this->model->create_comment($content, $user_id, $postId);
-                $arrayId = [$postId];
                 $this->redirect('posts','view_post',$arrayId);
             }
         }
