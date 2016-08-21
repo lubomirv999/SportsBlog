@@ -66,6 +66,13 @@ class PostsModel extends BaseModel
         return $statement->affected_rows == 1;
     }
 
+   public function countPosts ()
+   {
+       $statement = self::$db->query("SELECT count(Id) FROM posts ");
+       $result = $statement->fetch_assoc();
+       return $result['count(Id)'];
+   }
+
     public function create_comment(string $content, int $user_id, int $post_id)
     {
         $statement = self::$db->prepare("INSERT INTO comments (content, post_id,user_id) VALUES (?,?,?) ");
