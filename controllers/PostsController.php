@@ -15,7 +15,12 @@ class PostsController extends BaseController
 
     public function index()
     {
-        $this->posts = $this->model->getAll();
+        if ($this->model->countPosts()!='0') {
+            $this->posts = $this->model->getAll();
+        } else {
+            $this->addInfoMessage("There are no posts.");
+            $this->posts = $this->model->getAll();
+        }
     }
 
     public function create()
