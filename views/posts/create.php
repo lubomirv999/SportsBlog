@@ -13,6 +13,6 @@
         </div>
         <div>
             <input type="submit" name="submit" value="Create post" />
-            <a href="<?=APP_ROOT?>/posts">[Cancel]</a>
+            <a href="<?=APP_ROOT?>/posts">Cancel</a>
         </div>
     </form>

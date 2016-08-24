@@ -239,7 +239,7 @@
 		letter-spacing: 0.02em;
 	}
 	td>a {
-		color: black;
+		color: #0090c5;
 	}
 
 	table {
@@ -2847,7 +2847,5 @@
 			#copyright {
 				text-align: left;
 			}
-
-
 
 	}
