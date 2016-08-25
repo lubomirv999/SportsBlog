@@ -27,7 +27,7 @@
                             <figcaption>
                                 <p class="team_name">Любомир Вълев</p>
                                 <p class="team_title">Front End</p>
-                                <p class="team_description">Write Some info about you!</p>
+                                <p class="team_description">Любомир Вълев е на 16 години, от град Карлово. Ученик от 11 клас в СОУ "Христо Проданов", гр. Карлово</p>
                             </figcaption>
                         </figure>
                     </li>
