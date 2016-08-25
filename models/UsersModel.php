@@ -28,4 +28,13 @@ class UsersModel extends BaseModel
          $statement = self::$db->query("SELECT users.UserName, users.FullName FROM users ");
          return $statement->fetch_all(MYSQLI_ASSOC);
      }
+
+     public function pagingUsers  ($page, $recordsPerPage)
+     {
+         $statement = self::$db->prepare("SELECT * FROM users LIMIT ?,? ");
+         $statement ->bind_param("ii", $page, $recordsPerPage );
+         $statement -> execute();
+         $statement -> get_result()->fetch_all();
+     }
+
 }
