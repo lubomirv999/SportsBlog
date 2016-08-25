@@ -1,10 +1,15 @@
-<?php $this->title = 'Posts'; ?>
+<?php
+    require_once ('./helpers/pagination.php');
+    $this->title = 'Posts';
+    $postsCount = intval($this->model->countPosts());
+    $indexURL = APP_ROOT . '/posts/index/';
+?>
 <div id="main-wrapper">
     <div class="container">
         <div class="row 200%">
             <div class="8u 12u$(medium)">
+            <?php if ($postsCount > 0)  : ?>
             <?php foreach ($this->posts as $post) : ?>
-
                     <div id="content">
 
                         <!-- Content -->
@@ -29,10 +34,10 @@
                         </article>
 
                     </div>
-
-
-
             <?php endforeach;?>
+            <?php endif; ?>
+
+            <?php pagination($postsCount, $indexURL);?>
             </div>
 
             <div class="4u 12u$(medium)">

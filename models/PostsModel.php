@@ -8,10 +8,12 @@
  */
 class PostsModel extends BaseModel
 {
-    public function getAll() : array
+    public function getAll($page, $perPage = 10) : array
     {
+        $from = ($page-1)*$perPage;
+        $to = $page*$perPage;
         $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date, posts.user_id " .
-            "FROM posts LEFT JOIN users ON posts.user_id = users.ID " . "ORDER BY date DESC ");
+            "FROM posts LEFT JOIN users ON posts.user_id = users.ID " . "ORDER BY date DESC " . "LIMIT $from, $to");
         return $statement->fetch_all(MYSQLI_ASSOC);
 
     }

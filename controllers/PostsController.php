@@ -16,10 +16,11 @@ class PostsController extends BaseController
     public function index()
     {
         if ($this->model->countPosts()!='0') {
-            $this->posts = $this->model->getAll();
+            $currentPage  = (isset($_GET['page'])) ? $_GET['page'] : 1 ;
+            $this->posts = $this->model->getAll($currentPage, 5);
         } else {
             $this->addInfoMessage("There are no posts.");
-            $this->posts = $this->model->getAll();
+            $this->posts = [];
         }
     }
 
