@@ -1,14 +1,16 @@
 <?php $this->title = 'Users'; ?>
+<?php
+if($this->isAdmin)?>
 <form action="">
     <?php foreach ($this->users as $user) : ?>
-        <div class="users">
-            <div class="right"> Username:
-                <a href =" <?=APP_ROOT?>/team"><?=$user['UserName']?></a><br>
-            </div>
-            <div class="left">FullName:
-                <?=$user['FullName']?>
-            </div>
+    <div class="users">
+        <div class="right"> Username:
+            <a href =" <?=APP_ROOT?>/team"><?=$user['UserName']?></a><br>
         </div>
-    <?php endforeach;?>
+        <div class="left">FullName:
+            <?=$user['FullName']?>
+        </div>
+    </div>
+<?php endforeach;?>
 </form>
 

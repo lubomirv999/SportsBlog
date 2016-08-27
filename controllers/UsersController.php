@@ -68,6 +68,19 @@ class UsersController extends BaseController
 
     public function index ()
     {
-        $this->users=$this->model->listUsers();
+        $userid = $_SESSION['userId'];
+        $admin = $this->model->checkAdmin($userid);
+        if($admin){
+            $this->users=$this->model->listUsers();
+
+        }
+        else{
+            $this->addErrorMessage('You have been redirected here since you don\'t have permission to view this page.');
+            return $this->redirect("posts");
+
+        }
+
+
     }
+
 }

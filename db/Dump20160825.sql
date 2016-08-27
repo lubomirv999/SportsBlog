@@ -19,10 +19,6 @@
 -- Table structure for table `categories`
 --
 
-drop database if exists `sportsblogdb`;
-create database `sportsblogdb`;
-use `sportsblogdb`;
-
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -178,11 +174,11 @@ CREATE TABLE `users` (
   `UserName` varchar(45) NOT NULL,
   `FullName` varchar(200) NOT NULL,
   `Password` varchar(250) NOT NULL,
-  `is_admin` bit(1) DEFAULT NULL,
+  `is_admin` bit(1) DEFAULT b'0',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`),
   UNIQUE KEY `UserName_UNIQUE` (`UserName`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,6 +187,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (17,'ivo','ivo','$2y$10$Y3/RReePuFnZt6lsK87RFu1mkjzfqlLh5x.d6E7eLdpr4sg20v1L.',''),(18,'asd','asd','$2y$10$Hl2118FhVMMZDu4xjNDuqeSyF9z5GF9xWW6KJgSbi1.Mfp3.NCCOe','\0');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -203,4 +200,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-25 22:23:27
+-- Dump completed on 2016-08-27 13:43:39

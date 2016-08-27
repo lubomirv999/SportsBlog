@@ -37,4 +37,11 @@ class UsersModel extends BaseModel
          $statement -> get_result()->fetch_all();
      }
 
+    public function checkAdmin (int $id)
+    {
+        $statement = self::$db->prepare("SELECT is_admin FROM users WHERE ID = ?");
+        $statement -> bind_param("i", $id);
+        $statement-> execute();
+        $statement -> get_result()->fetch_all();
+    }
 }
