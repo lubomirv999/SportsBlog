@@ -101,6 +101,23 @@
 		Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
 		*/
 
+		div>section>p#first{
+			font-family: "Arial", Arial, serif;
+			text-align: center;
+			color: #444;
+			margin: 0;
+			padding: 0px 0px 6px 0px;
+			font-size: 30px;
+			line-height: 44px;
+			letter-spacing: -0px;
+		}
+		div>section>p#second {
+			font-family: "Arial", Arial, serif;
+			text-align: center;
+			color: #444;
+			font-size: 35px;
+		}
+
 		#about-us{display:block; width:100%; line-height:1.6em;}
 
 		#about-us #about-intro{margin-bottom:50px;}
