@@ -7,8 +7,8 @@
         <div id="about-us" class="clear">
             <!-- ####################################################################################################### -->
             <section id="about-intro" class="clear">
-                <p>Write some info about all of us!</p>
-                <p>Write some info about all of us - second paragraph</p>
+                <p id="first">SportZen is a project for Software University course "Software Technologies - June 2016".</p>
+                <p id="second">This is our team "Zen Coders"</p>
             </section>
             <!-- ####################################################################################################### -->
             <section id="team">
@@ -58,7 +58,7 @@
                             </figcaption>
                         </figure>
                     </li>
-                    <li class="one_quarter first">
+                    <li class="one_quarter">
                         <figure><img src="<?=APP_ROOT?>/content/images/ProfilePic_IvoBonev.jpg" alt="">
                             <figcaption>
                                 <p class="team_name">Ивайло Бонев</p>
