@@ -178,6 +178,7 @@ CREATE TABLE `users` (
   `UserName` varchar(45) NOT NULL,
   `FullName` varchar(200) NOT NULL,
   `Password` varchar(250) NOT NULL,
+  `is_admin` bit(1) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`),
   UNIQUE KEY `UserName_UNIQUE` (`UserName`)
