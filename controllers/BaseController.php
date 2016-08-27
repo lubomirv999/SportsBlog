@@ -10,6 +10,7 @@ abstract class BaseController
     protected $title = "";
     protected $model;
     protected $validationErrors = [];
+    protected $isAdmin = 1;
 
     function __construct(string $controllerName, string $actionName)
     {

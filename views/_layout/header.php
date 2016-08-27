@@ -41,11 +41,18 @@
                     <!-- TODO: <li class="current"> -->
                     <li><a href="<?=APP_ROOT?>/">Home</a></li>
                     <?php if ($this->isLoggedIn) : ?>
-                        <li><a href="<?=APP_ROOT?>/posts">Posts</a></li>
-                        <li><a href="<?=APP_ROOT?>/posts/create">Create Post</a></li>
-                        <li><a href="<?=APP_ROOT?>/users">Users</a></li>
-                        <li><a href="<?=APP_ROOT?>/contact/send">Contact</a></li>
-                        <li><a href="<?=APP_ROOT?>/users/logout">Logout</a></li>
+                         <?php if ($this->isAdmin==1) : ?>
+                            <li><a href="<?=APP_ROOT?>/posts">Posts</a></li>
+                            <li><a href="<?=APP_ROOT?>/posts/create">Create Post</a></li>
+                            <li><a href="<?=APP_ROOT?>/users">Users</a></li>
+                            <li><a href="<?=APP_ROOT?>/contact/send">Contact</a></li>
+                            <li><a href="<?=APP_ROOT?>/users/logout">Logout</a></li>
+                        <?php else: ?>
+                            <li><a href="<?=APP_ROOT?>/posts">Posts</a></li>
+                            <li><a href="<?=APP_ROOT?>/posts/create">Create Post</a></li>
+                            <li><a href="<?=APP_ROOT?>/contact/send">Contact</a></li>
+                            <li><a href="<?=APP_ROOT?>/users/logout">Logout</a></li>
+                        <?php endif; ?>
                     <?php else: ?>
                         <li><a href="<?=APP_ROOT?>/users/login">Login</a></li>
                         <li><a href="<?=APP_ROOT?>/users/register">Register</a></li>

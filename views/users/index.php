@@ -1,6 +1,4 @@
 <?php $this->title = 'Users'; ?>
-<?php
-if($this->isAdmin)?>
 <form action="">
     <?php foreach ($this->users as $user) : ?>
     <div class="users">

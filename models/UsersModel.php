@@ -39,9 +39,11 @@ class UsersModel extends BaseModel
 
     public function checkAdmin (int $id)
     {
-        $statement = self::$db->prepare("SELECT is_admin FROM users WHERE ID = ?");
+        $statement = self::$db->prepare("SELECT users.is_admin FROM users WHERE ID = ? ");
         $statement -> bind_param("i", $id);
         $statement-> execute();
-        $statement -> get_result()->fetch_all();
+        $resultArr = $statement -> get_result()->fetch_assoc();
+        $result = $resultArr['is_admin'];
+        return $result;
     }
 }
