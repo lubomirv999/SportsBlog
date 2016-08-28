@@ -19,6 +19,7 @@
                                 <?=(new DateTime($post['date']))->format('d-M-Y')?>
                                 <i>by </i><?=htmlentities($post['FullName'])?>
                             </span>
+                            <img src="<?=APP_ROOT?>/<?=$post['image']?>" />
                             <p><?= cutLongText($post['content'])?></p>
                             <table>
                                 <tr>

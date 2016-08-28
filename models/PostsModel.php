@@ -12,8 +12,10 @@ class PostsModel extends BaseModel
     {
         $from = ($page-1)*$perPage;
         $to = $page*$perPage;
-        $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date, posts.user_id " .
-            "FROM posts LEFT JOIN users ON posts.user_id = users.ID " . "ORDER BY date DESC " . "LIMIT $from, $to");
+        $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date, posts.user_id, pictures.name as image " .
+            "FROM posts LEFT JOIN users ON posts.user_id = users.ID ".
+            "LEFT JOIN pictures ON pictures.post_id = posts.Id ".
+            "ORDER BY date DESC " . "LIMIT $from, $to");
         return $statement->fetch_all(MYSQLI_ASSOC);
 
     }
@@ -30,8 +32,9 @@ class PostsModel extends BaseModel
 
     public function getById(int $id)
     {
-        $statement = self::$db->prepare("SELECT users.UserName, posts.user_id, posts.date, posts.title, posts.content, posts.Id " .
+        $statement = self::$db->prepare("SELECT users.UserName, posts.user_id, posts.date, posts.title, posts.content,pictures.name as image, posts.Id " .
             "FROM posts LEFT JOIN users ON posts.user_id = users.ID " .
+            "LEFT JOIN pictures ON pictures.post_id = posts.Id ".
             "WHERE posts.Id = ? ");
         $statement->bind_param("i", $id);
         $statement->execute();
@@ -39,7 +42,7 @@ class PostsModel extends BaseModel
         return $result;
     }
 
-    public function create(string $title, string $content, int $user_id) : bool
+    public function create(string $title, string $content, int $user_id)
     {
         $statement = self::$db->prepare("INSERT INTO posts (title,content,user_id) VALUES (?,?,?) ");
         $statement->bind_param("ssi", $title, $content, $user_id);
@@ -114,5 +117,12 @@ class PostsModel extends BaseModel
         $resultArr = $statement->get_result()->fetch_assoc();
         $result = $resultArr['user_id'];
         return $result;
+    }
+
+    public function insertPostPicture(int $postId, $imagePath) {
+        $statement = self::$db->prepare("INSERT into pictures (name, post_id) VALUES (?,?) ");
+        $statement ->bind_param("si",$imagePath,$postId);
+        $statement -> execute();
+        return self::$db->insert_id;
     }
 }

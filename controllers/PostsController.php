@@ -10,6 +10,7 @@ class PostsController extends BaseController
 {
     function onInit()
     {
+        parent::onInit();
         $this->authorize();
     }
 
@@ -37,7 +38,14 @@ class PostsController extends BaseController
             }
             if ($this->formValid()) {
                 $user_id = $_SESSION['userId'];
-                if($this->model->create($title, $content, $user_id)) {
+                $postId = $this->model->create($title, $content, $user_id);
+                if($postId) {
+                    if ($_FILES["fileToUpload"]['size'] > 0) {
+                        $uploadResult = $this->uploadFile();
+                        if ($uploadResult !== false) {
+                            $this->model->insertPostPicture($postId, $uploadResult);
+                        }
+                    }
                     $this->addInfoMessage("Post created successfully.");
                     $this->redirect('posts');
                 } else {
@@ -148,4 +156,62 @@ class PostsController extends BaseController
 
         $this->redirect('posts','view_post',$postIdArray);
     }
+
+     private function uploadFile()
+     {
+         $target_dir = "content/uploads/";
+         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+         $uploadOk = 1;
+         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+// Check if image file is a actual image or fake image
+         if (isset($_POST["submit"])) {
+             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+             if ($check !== false) {
+                 $this->addInfoMessage("File is an image - " . $check["mime"] . ".");
+                 $uploadOk = 1;
+             } else {
+                 $this->addErrorMessage("File is not an image.");
+                 $this->redirect('posts','create');
+                 $uploadOk = 0;
+             }
+         }
+// Check if file already exists
+         if (file_exists($target_file)) {
+             $this->addErrorMessage("Sorry, file already exists.");
+             $this->redirect('posts','create');
+             $uploadOk = 0;
+         }
+// Check file size
+         if ($_FILES["fileToUpload"]["size"] > 500000000) {
+             $this->addErrorMessage("Sorry, your file is too large.");
+             $this->redirect('posts','create');
+             $uploadOk = 0;
+         }
+// Allow certain file formats
+         if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+             && $imageFileType != "gif"
+         ) {
+             $this->addErrorMessage("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+             $this->redirect('posts','create');
+             $uploadOk = 0;
+         }
+// Check if $uploadOk is set to 0 by an error
+         if ($uploadOk == 0) {
+              $this->addErrorMessage("Sorry, your file was not uploaded.");
+             $this->redirect('posts','create');
+// if everything is ok, try to upload file
+         } else {
+             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                 $this->addInfoMessage("The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.");
+                 $result = $target_file;
+               //  $this->redirect('posts','create');
+             } else {
+                 $this->addErrorMessage("Sorry, there was an error uploading your file.");
+                 $this->redirect('posts','create');
+                 $result = false;
+             }
+         }
+
+         return $result;
+     }
 }

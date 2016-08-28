@@ -7,6 +7,7 @@
             <?= (new DateTime($this->post['date']))->format('d-M-y') ?>
             <i>by</i> <?= htmlentities($this->post['UserName'])?></div>
         <p class="content"><?= $this->post['content'] ?></p>
+        <img src="<?=APP_ROOT?>/<?=$this->post['image']?>"
     </article>
 </main>
 <form action="<?= APP_ROOT ?>/posts/createComment/<?= $this->post['Id']?>" method="post">
