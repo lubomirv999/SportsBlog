@@ -18,6 +18,9 @@
 --
 -- Table structure for table `categories`
 --
+drop database if exists `sportsblogdb`;
+create database `sportsblogdb`;
+use `sportsblogdb`;
 
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -26,7 +29,7 @@ CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +38,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Football'),(2,'Athletics'),(3,'Motorsports'),(4,'Swimming'),(5,'Volleyball'),(6,'Other');
+INSERT INTO `categories` VALUES (7,'Football'),(8,'Athletics'),(9,'Swimming'),(10,'Wrestling'),(11,'Others'),(12,'Football'),(13,'Athletics'),(14,'Swimming'),(15,'Wrestling'),(16,'Others');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,18 +109,10 @@ DROP TABLE IF EXISTS `pictures`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pictures` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `type` varchar(45) NOT NULL,
-  `size` int(11) NOT NULL,
-  `content` mediumblob NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(100) NOT NULL,
   `post_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name_UNIQUE` (`name`),
-  KEY `Users_id1` (`user_id`),
-  KEY `Posts_id1` (`post_id`),
-  CONSTRAINT `PostsKey` FOREIGN KEY (`post_id`) REFERENCES `posts` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `UsersUploaded` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -150,7 +145,7 @@ CREATE TABLE `posts` (
   KEY `Categories_idx` (`category_id`),
   CONSTRAINT `Categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Users` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,11 +169,11 @@ CREATE TABLE `users` (
   `UserName` varchar(45) NOT NULL,
   `FullName` varchar(200) NOT NULL,
   `Password` varchar(250) NOT NULL,
-  `is_admin` bit(1) DEFAULT b'0',
+  `is_admin` bit(1) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`),
   UNIQUE KEY `UserName_UNIQUE` (`UserName`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,7 +182,6 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (17,'ivo','ivo','$2y$10$Y3/RReePuFnZt6lsK87RFu1mkjzfqlLh5x.d6E7eLdpr4sg20v1L.',''),(18,'asd','asd','$2y$10$Hl2118FhVMMZDu4xjNDuqeSyF9z5GF9xWW6KJgSbi1.Mfp3.NCCOe','\0');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -200,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-27 13:43:39
+-- Dump completed on 2016-08-28 20:08:03
