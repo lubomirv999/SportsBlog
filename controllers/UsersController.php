@@ -67,6 +67,7 @@ class UsersController extends BaseController
 
     public function index ()
     {
+        var_dump($this->model->checkAdmin($_SESSION['userId']));
         $this->users = $this->model->listUsers();
     }
 }

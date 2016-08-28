@@ -10,7 +10,7 @@ abstract class BaseController
     protected $title = "";
     protected $model;
     protected $validationErrors = [];
-    protected $isAdmin = 1;
+    protected $isAdmin = false;
 
     function __construct(string $controllerName, string $actionName)
     {
@@ -34,7 +34,12 @@ abstract class BaseController
 
     public function onInit()
     {
-        // Implement initializing logic in the subclasses
+        $usersModel = new UsersModel();
+        if ($this->isLoggedIn == true) {
+            if($usersModel->checkAdmin($_SESSION['userId'])==1){
+                $this->isAdmin = true;
+            }
+        }
     }
 
     public function index()
