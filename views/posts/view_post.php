@@ -22,15 +22,24 @@
     </div>
 </form>
 <div>
-    <p>Comments:</p>
+    <br>
+</>
+<div id="comments">
+    <p style="font-size: 30pt; color: #3e3e3e; text-align: center; margin: 15px; padding-top: 5px;">Comments:</p>
+    <div style="background: whitesmoke;">
+        <br>
+    </div>
     <?php foreach ($this-> comments as $comment): ?>
         <form action="<?= APP_ROOT ?>/posts/deleteComment/<?= $this->post['Id']?>/<?=$comment['ID']?>" method="post">
        <div class="date"><i>Commented on:</i>
         <?= (new DateTime($comment['date']))->format('d-M-Y') ?><i> by </i>
         <?= htmlspecialchars($comment['UserName']) ?>
-        <p class="content"><?= $comment['content'] ?></p>
+        <p style="color: black;" class="content"><?= $comment['content'] ?></p>
            <div><input type="submit" name="deleteComment" id="deleteComment" value="Delete"></div>
        </div>
+            <div style="background: whitesmoke">
+                <br>
+            </div>
         </form>
     <?php endforeach ?>
 </div>
