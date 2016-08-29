@@ -12,7 +12,7 @@
             </section>
             <!-- ####################################################################################################### -->
             <section id="team">
-                <ul class="clear">
+                <ol class="clear" style="float: left; padding-left: 17%">
                     <li class="one_quarter">
                         <figure><img src="<?=APP_ROOT?>/content/images/ProfilePic_Kamen.jpg" alt="">
                             <figcaption>
@@ -21,7 +21,7 @@
                                 <p class="team_description">Write Some info about you!</p>
                             </figcaption>
                         </figure>
-                    </li>
+                        </li>
                     <li class="one_quarter">
                         <figure><img src="<?=APP_ROOT?>/content/images/ProfilePic_Lubo.jpg" alt="">
                             <figcaption>
@@ -40,6 +40,9 @@
                             </figcaption>
                         </figure>
                     </li>
+                    </ol>
+                <div></div>
+                <ol class="clear" style="float: left; padding-left: 17%">
                     <li class="one_quarter">
                         <figure><img src="<?=APP_ROOT?>/content/images/ProfilePic_Nasko.jpg" alt="">
                             <figcaption>
@@ -67,7 +70,7 @@
                             </figcaption>
                         </figure>
                     </li>
-                </ul>
+                </ol>
             </section>
             <!-- ####################################################################################################### -->
         </div>
