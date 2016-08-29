@@ -18,6 +18,7 @@
 --
 -- Table structure for table `categories`
 --
+
 drop database if exists `sportsblogdb`;
 create database `sportsblogdb`;
 use `sportsblogdb`;
@@ -38,7 +39,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (7,'Football'),(8,'Athletics'),(9,'Swimming'),(10,'Wrestling'),(11,'Others'),(12,'Football'),(13,'Athletics'),(14,'Swimming'),(15,'Wrestling'),(16,'Others');
+INSERT INTO `categories` VALUES (7,'Football'),(8,'Athletics'),(9,'Swimming'),(10,'Wrestling'),(11,'Others');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +114,7 @@ CREATE TABLE `pictures` (
   `post_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +123,7 @@ CREATE TABLE `pictures` (
 
 LOCK TABLES `pictures` WRITE;
 /*!40000 ALTER TABLE `pictures` DISABLE KEYS */;
+INSERT INTO `pictures` VALUES (1,'content/uploads/11355111_1599118547027182_726917175_n.jpg',39),(2,'content/uploads/13e_bronze_greaves_south_italic_panoply_1024x0.jpg',40);
 /*!40000 ALTER TABLE `pictures` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +147,7 @@ CREATE TABLE `posts` (
   KEY `Categories_idx` (`category_id`),
   CONSTRAINT `Categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Users` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,6 +156,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES (36,'Rome','<p>rome items</p>\r\n','2016-08-28 20:17:04',20,NULL),(37,'kaka','<p>hahahah</p>\r\n','2016-08-28 20:17:53',20,NULL),(38,'kakak','<p>jhauhab</p>\r\n','2016-08-28 20:18:14',20,NULL),(39,'jajai','<p>kanan</p>\r\n','2016-08-28 20:19:52',20,NULL),(40,'kak','<p>kjaji</p>\r\n','2016-08-28 20:21:13',20,NULL);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +176,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`),
   UNIQUE KEY `UserName_UNIQUE` (`UserName`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,6 +185,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (20,'kamen','Kamen Minkov','$2y$10$S4WreOJD/FwTE5y0pgiXuu9m9YOSqWYe.WeM3.B1fXX6AtpV8UUiu',NULL),(21,'men','men','$2y$10$Op46U1yn16tXQNX3nHPpFu4jE.AvgWRcIKdAk0X7omLMHyZ8xYFKq',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -194,4 +198,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-28 20:08:03
+-- Dump completed on 2016-08-29 20:57:49

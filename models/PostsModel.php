@@ -125,4 +125,10 @@ class PostsModel extends BaseModel
         $statement -> execute();
         return self::$db->insert_id;
     }
+
+    public function getAllCategories()
+    {
+        $statement = self::$db->query("SELECT*FROM categories ");
+        return $statement->fetch_all(MYSQLI_ASSOC);
+    }
 }

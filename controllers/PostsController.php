@@ -27,6 +27,7 @@ class PostsController extends BaseController
 
     public function create()
     {
+        var_dump($this->model->getAllCategories());
         if ($this->isPost) {
             $title = $_POST['title'];
             $content = $_POST['content'];
@@ -214,4 +215,9 @@ class PostsController extends BaseController
 
          return $result;
      }
+
+    public function listAllCategories ()
+    {
+        $this->categories=$this->model->getAllCategories();
+    }
 }
