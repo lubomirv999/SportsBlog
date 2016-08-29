@@ -29,7 +29,8 @@ DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -110,7 +111,7 @@ DROP TABLE IF EXISTS `pictures`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pictures` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
+  `name` varchar(150) NOT NULL,
   `post_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
@@ -123,7 +124,6 @@ CREATE TABLE `pictures` (
 
 LOCK TABLES `pictures` WRITE;
 /*!40000 ALTER TABLE `pictures` DISABLE KEYS */;
-INSERT INTO `pictures` VALUES (1,'content/uploads/11355111_1599118547027182_726917175_n.jpg',39),(2,'content/uploads/13e_bronze_greaves_south_italic_panoply_1024x0.jpg',40);
 /*!40000 ALTER TABLE `pictures` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +156,6 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (36,'Rome','<p>rome items</p>\r\n','2016-08-28 20:17:04',20,NULL),(37,'kaka','<p>hahahah</p>\r\n','2016-08-28 20:17:53',20,NULL),(38,'kakak','<p>jhauhab</p>\r\n','2016-08-28 20:18:14',20,NULL),(39,'jajai','<p>kanan</p>\r\n','2016-08-28 20:19:52',20,NULL),(40,'kak','<p>kjaji</p>\r\n','2016-08-28 20:21:13',20,NULL);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +184,6 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (20,'kamen','Kamen Minkov','$2y$10$S4WreOJD/FwTE5y0pgiXuu9m9YOSqWYe.WeM3.B1fXX6AtpV8UUiu',NULL),(21,'men','men','$2y$10$Op46U1yn16tXQNX3nHPpFu4jE.AvgWRcIKdAk0X7omLMHyZ8xYFKq',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -198,4 +196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-29 20:57:49
+-- Dump completed on 2016-08-29 23:14:49

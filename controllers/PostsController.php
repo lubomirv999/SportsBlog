@@ -27,10 +27,12 @@ class PostsController extends BaseController
 
     public function create()
     {
-        var_dump($this->model->getAllCategories());
+        $this->categories=$this->model->getAllCategories();
+        $defaultCategoryID = $this->model->getOthersCategoryId();
         if ($this->isPost) {
             $title = $_POST['title'];
             $content = $_POST['content'];
+            $category_id = ($_POST['category']) ? $_POST['category'] : $defaultCategoryID['id'] ;
             if (strlen($title) == 0) {
                 $this->setValidationError("title", "Title cannot be empty!");
             }
@@ -39,7 +41,7 @@ class PostsController extends BaseController
             }
             if ($this->formValid()) {
                 $user_id = $_SESSION['userId'];
-                $postId = $this->model->create($title, $content, $user_id);
+                $postId = $this->model->create($title, $content, $user_id, $category_id);
                 if($postId) {
                     if ($_FILES["fileToUpload"]['size'] > 0) {
                         $uploadResult = $this->uploadFile();
@@ -215,9 +217,4 @@ class PostsController extends BaseController
 
          return $result;
      }
-
-    public function listAllCategories ()
-    {
-        $this->categories=$this->model->getAllCategories();
-    }
 }

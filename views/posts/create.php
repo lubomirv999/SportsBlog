@@ -5,7 +5,7 @@
     <select name="category" id="category">
         <option value="0" selected="selected">Select a category</option>
         <?php foreach ($this->categories as $category): ?>
-          <option value="<?= $category['name']; ?>"<?= htmlspecialchars($category['name']); ?></option>
+          <option value="<?= $category['id']; ?>"><?= htmlspecialchars($category['name']); ?></option>
         <?php endforeach; ?>
     </select>
     <div>

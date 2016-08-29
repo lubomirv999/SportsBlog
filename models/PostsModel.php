@@ -12,12 +12,12 @@ class PostsModel extends BaseModel
     {
         $from = ($page-1)*$perPage;
         $to = $page*$perPage;
-        $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date, posts.user_id, pictures.name as image " .
+        $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date,
+             posts.user_id, pictures.name as image " .
             "FROM posts LEFT JOIN users ON posts.user_id = users.ID ".
             "LEFT JOIN pictures ON pictures.post_id = posts.Id ".
-            "ORDER BY date DESC " . "LIMIT $from, $to");
+            "ORDER BY date DESC " . "LIMIT $from, $to ");
         return $statement->fetch_all(MYSQLI_ASSOC);
-
     }
     
     public function getUserIdByPostId(int $id)
@@ -32,9 +32,11 @@ class PostsModel extends BaseModel
 
     public function getById(int $id)
     {
-        $statement = self::$db->prepare("SELECT users.UserName, posts.user_id, posts.date, posts.title, posts.content,pictures.name as image, posts.Id " .
+        $statement = self::$db->prepare("SELECT users.UserName, posts.user_id, posts.date,
+            posts.title, posts.content,pictures.name as image, posts.Id, categories.name as category " .
             "FROM posts LEFT JOIN users ON posts.user_id = users.ID " .
             "LEFT JOIN pictures ON pictures.post_id = posts.Id ".
+            "LEFT JOIN categories ON categories.id = posts.category_id ".
             "WHERE posts.Id = ? ");
         $statement->bind_param("i", $id);
         $statement->execute();
@@ -42,10 +44,10 @@ class PostsModel extends BaseModel
         return $result;
     }
 
-    public function create(string $title, string $content, int $user_id)
+    public function create(string $title, string $content, int $user_id, int $category_id)
     {
-        $statement = self::$db->prepare("INSERT INTO posts (title,content,user_id) VALUES (?,?,?) ");
-        $statement->bind_param("ssi", $title, $content, $user_id);
+        $statement = self::$db->prepare("INSERT INTO posts (title,content,user_id,category_id) VALUES (?,?,?,?) ");
+        $statement->bind_param("ssii", $title, $content, $user_id, $category_id);
         $statement->execute();
         if ($statement->affected_rows == 0) {
             return false;
@@ -131,4 +133,30 @@ class PostsModel extends BaseModel
         $statement = self::$db->query("SELECT*FROM categories ");
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
+
+   public function getCategoriesIdByName ($category)
+   {
+       $statement = self::$db->prepare("SELECT categories.id FROM categories WHERE categories.name = ? ");
+       $statement -> bind_param("s", $category);
+       $statement -> execute();
+      return $statement-> get_result()->fetch_assoc();
+
+   }
+
+   public function getOthersCategoryId ()
+   {
+       $statement = self::$db->query("SELECT categories.id FROM categories WHERE categories.name='Others' ");
+       return $statement->fetch_assoc();
+   }
+
+   public function pushCategoryIdAtPosts($id):bool
+   {
+       $statement = self::$db-> prepare("INSERT INTO posts(posts.category_id) VALUE (?) ");
+       $statement ->bind_param("i",$id);
+       $statement -> execute();
+       if ($statement->affected_rows!=0){
+           return true;
+       }
+       return false;
+   }
 }
