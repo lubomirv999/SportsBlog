@@ -69,4 +69,42 @@ class UsersController extends BaseController
     {
         $this->users = $this->model->listUsers();
     }
+
+    public function delete()
+    {
+        $slices = explode('/', $_SERVER['REQUEST_URI']);
+        $class = implode(' ', $slices);
+        $id = $slices[4];
+        $deletedUser = $this->model->deleteUser($id);
+        if($deletedUser)
+        {
+            $this->addInfoMessage("User deleted successfully!");
+            $this->redirect("users");
+        }
+        else
+        {
+            $this->addErrorMessage("Error deleting user!");
+            $this->redirect("users");
+        }
+    }
+
+    public function promote()
+    {
+        $slices = explode('/', $_SERVER['REQUEST_URI']);
+        $class = implode(' ', $slices);
+        $id = $slices[4];
+        $promotedUser = $this->model->promoteUser($id);
+        if($promotedUser)
+        {
+            $this->addInfoMessage("User promoted successfully!");
+            $this->redirect("users");
+        }
+        else
+        {
+            $this->addErrorMessage("Error promoting user!");
+            $this->redirect("users");
+        }
+
+    }
+
 }

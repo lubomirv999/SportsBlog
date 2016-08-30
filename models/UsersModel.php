@@ -25,7 +25,7 @@ class UsersModel extends BaseModel
         return false;
     }
      public function listUsers(){
-         $statement = self::$db->query("SELECT users.UserName, users.FullName FROM users ");
+         $statement = self::$db->query("SELECT users.UserName, users.FullName, users.ID FROM users ");
          return $statement->fetch_all(MYSQLI_ASSOC);
      }
 
@@ -45,5 +45,27 @@ class UsersModel extends BaseModel
         $resultArr = $statement -> get_result()->fetch_assoc();
         $result = $resultArr['is_admin'];
         return $result;
+    }
+
+    public function deleteUser(int $id) : bool
+    {
+        $statement = self::$db->prepare("DELETE FROM users WHERE ID = ?");
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        if($statement->affected_rows == 1){
+            return true;
+        }
+        return false;
+    }
+
+    public function promoteUser(int $id) : bool
+    {
+        $statement = self::$db->prepare("UPDATE users SET is_admin = 1 WHERE ID = ?");
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        if($statement->affected_rows == 1){
+            return true;
+        }
+        return false;
     }
 }
