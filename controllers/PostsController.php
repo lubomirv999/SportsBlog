@@ -61,6 +61,9 @@ class PostsController extends BaseController
 
     public function edit(int $id)
     {
+        $this->categories=$this->model->getAllCategories();
+        $defaultCategoryID = $this->model->getOthersCategoryId();
+        $category_id = ($_POST['category']) ? $_POST['category'] : $defaultCategoryID['id'] ;
         if ($this->model->getUserIdByPostId($id)!=intval($_SESSION['userId'])){
             $this->addErrorMessage("You cannot edit this post!");
             $this->redirect('posts');
@@ -76,8 +79,8 @@ class PostsController extends BaseController
             }
 
             if($this->formValid()){
-                if($this->model->edit($id,$title,$content)){
-                    $this->addInfoMessage("Post edited successfuly.");
+                if($this->model->edit($id,$title,$content,$category_id)){
+                    $this->addInfoMessage("Post edited successfully.");
                 }
                 else{
                     $this->addErrorMessage("Post can not be edited!");

@@ -33,7 +33,7 @@ class PostsModel extends BaseModel
     public function getById(int $id)
     {
         $statement = self::$db->prepare("SELECT users.UserName, posts.user_id, posts.date,
-            posts.title, posts.content,pictures.name as image, posts.Id, categories.name as category " .
+            posts.title, posts.content,pictures.name as image, posts.Id, categories.name as category, posts.category_id " .
             "FROM posts LEFT JOIN users ON posts.user_id = users.ID " .
             "LEFT JOIN pictures ON pictures.post_id = posts.Id ".
             "LEFT JOIN categories ON categories.id = posts.category_id ".
@@ -55,11 +55,11 @@ class PostsModel extends BaseModel
         return self::$db->insert_id;
     }
 
-    public function edit(int $id, string $title, string $content) : bool
+    public function edit(int $id, string $title, string $content,int $categoryId) : bool
     {
-        $statement = self::$db->prepare("UPDATE posts SET posts.title = ?, posts.content = ? ".
+        $statement = self::$db->prepare("UPDATE posts SET posts.title = ?, posts.content = ?, posts.category_id=? ".
                                         "WHERE posts.Id = ? ");
-        $statement->bind_param("ssi", $title, $content, $id);
+        $statement->bind_param("ssii", $title, $content,$categoryId, $id);
         $statement->execute();
         return $statement->affected_rows >= 0;
     }
