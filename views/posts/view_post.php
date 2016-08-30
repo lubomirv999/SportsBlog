@@ -11,7 +11,7 @@
             <?=htmlspecialchars($this->post['category'])?>
         </div>
         <p class="content"><?= $this->post['content'] ?></p>
-        <img style="width:300px;height:250px; border-radius: 6px" src= "<?=APP_ROOT?>/<?=$pictureURL?> "n
+        <img style="width:300px;height:250px; border-radius: 6px" src= "<?=APP_ROOT?>/<?=$pictureURL?> "
     </article>
 </main>
 <form action="<?= APP_ROOT ?>/posts/createComment/<?= $this->post['Id']?>" method="post">
