@@ -29,6 +29,7 @@
                                 <?=(new DateTime($post['date']))->format('d-M-Y')?>
                                 <i>by </i><?=htmlentities($post['FullName'])?>
                             </span>
+                            <br>
                             <span>
                                 <i>Category: </i><?=htmlentities($post['category'])?>
                             </span>
