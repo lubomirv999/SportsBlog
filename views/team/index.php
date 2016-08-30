@@ -8,7 +8,7 @@
             <!-- ####################################################################################################### -->
             <section id="about-intro" class="clear">
                 <p id="first">SportZen is a project for Software University course "Software Technologies - June 2016".</p>
-                <p id="second">This is our team "Zen Coders"</p>
+                <p id="second">This is our team "Zen Coders".</p>
             </section>
             <!-- ####################################################################################################### -->
             <section id="team">
@@ -27,7 +27,7 @@
                             <figcaption>
                                 <p class="team_name">Любомир Вълев</p>
                                 <p class="team_title">Front End</p>
-                                <p class="team_description">Любомир Вълев е на 16 години, от град Карлово. Ученик от 11 клас в СОУ "Христо Проданов", гр. Карлово</p>
+                                <p class="team_description">Любомир Вълев е на 16 години, от град Карлово. Ученик от 11 клас в СОУ "Христо Проданов".</p>
                             </figcaption>
                         </figure>
                     </li>
@@ -36,7 +36,7 @@
                             <figcaption>
                                 <p class="team_name">Ивайло Бараков</p>
                                 <p class="team_title">Back End</p>
-                                <p class="team_description">Write Some info about you!</p>
+                                <p class="team_description">Ивака е готин пичага на 17 години родом от град Стара Загора.</p>
                             </figcaption>
                         </figure>
                     </li>

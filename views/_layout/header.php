@@ -46,6 +46,7 @@
                             <li><a href="<?=APP_ROOT?>/posts/create">Create Post</a></li>
                             <li><a href="<?=APP_ROOT?>/users">Users</a></li>
                             <li><a href="<?=APP_ROOT?>/contact/send">Contact</a></li>
+                            <li><a href="<?=APP_ROOT?>/contact/messages">View messages</a></li>
                             <li><a href="<?=APP_ROOT?>/users/logout">Logout</a></li>
                         <?php else: ?>
                             <li><a href="<?=APP_ROOT?>/posts">Posts</a></li>

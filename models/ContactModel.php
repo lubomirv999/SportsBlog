@@ -12,4 +12,11 @@ class ContactModel extends BaseModel
         }
         return self::$db->insert_id;
     }
+
+    public function listMessages()
+    {
+        $statement = self::$db->query("SELECT contact.user_id, contact.content, contact.date FROM contact");
+        return $statement->fetch_all(MYSQLI_ASSOC);
+    }
+
 }

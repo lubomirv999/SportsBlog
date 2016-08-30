@@ -21,4 +21,9 @@ class ContactController extends BaseController
             }
         }
     }
+
+    public function messages()
+    {
+        $this->contact = $this->model->listMessages();
+    }
 }
