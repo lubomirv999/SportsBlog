@@ -33,7 +33,7 @@
                                 <i>Category: </i><?=htmlentities($post['category'])?>
                             </span>
                             <p>
-                                <img src="<?=APP_ROOT . '/' . $pictureURL; ?>" style="width:150px;height:150px;"/>
+                                <img src="<?=APP_ROOT . '/' . $pictureURL; ?>" style="width:150px;height:150px; border-radius: 6px"/>
                             </p>
                             <p><?= cutLongText($post['content'])?></p>
                             <table>

@@ -1966,6 +1966,7 @@
 		.button.big {
 			font-size: 2.25em;
 			padding: 0.8em 0.9em;
+			text-align: center;
 		}
 
 /* List */
@@ -2297,7 +2298,7 @@
 		}
 
 		#banner .button {
-			width: 100%;
+			width:90%;
 			margin-bottom: 0.5em;
 		}
 

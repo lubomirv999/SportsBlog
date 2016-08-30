@@ -28,7 +28,7 @@
                 <div class="4u 12u(medium)">
                     <section class="box feature">
                         <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>" class="image featured">
-                            <img style="width:350px;height:250px;" src="<?=APP_ROOT . '/' . $pictureURL; ?>" alt="" />
+                            <img style="width:372px;height:300px; border-radius: 6px" src="<?=APP_ROOT . '/' . $pictureURL; ?>" alt="" />
                         </a>
                         <div class="inner">
                             <header>
