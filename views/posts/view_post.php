@@ -1,5 +1,6 @@
 
 <?php $this->title = $this->post['title'] ?>
+<?php $pictureURL = ($this->post['image']) ? $this->post['image'] : 'content/images/default.jpg'; ?>
 <main id="posts">
     <article>
         <h2><?= htmlspecialchars($this->title) ?></h2>
@@ -10,7 +11,7 @@
             <?=htmlspecialchars($this->post['category'])?>
         </div>
         <p class="content"><?= $this->post['content'] ?></p>
-        <img style="width:300px;height:250px; border-radius: 6px" src= "<?=APP_ROOT?>/<?=$this->post['image']?> "
+        <img style="width:300px;height:250px; border-radius: 6px" src= "<?=APP_ROOT?>/<?=$pictureURL?> "
     </article>
 </main>
 <form action="<?= APP_ROOT ?>/posts/createComment/<?= $this->post['Id']?>" method="post">

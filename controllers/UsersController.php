@@ -67,7 +67,12 @@ class UsersController extends BaseController
 
     public function index ()
     {
-        $this->users = $this->model->listUsers();
+        if ($this->isAdmin) {
+            $this->users = $this->model->listUsers();
+        } else{
+            $this->addInfoMessage("Педераст!");
+            $this->redirect("home");
+        }
     }
 
     public function delete()

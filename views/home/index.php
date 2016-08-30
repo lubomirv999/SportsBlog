@@ -38,6 +38,7 @@
                                     <i>by </i><?=htmlentities($post['FullName'])?>
                                 </div>
                             </header>
+                            <div><i>Category: <i/><?=htmlspecialchars($post['category'])?></div>
                             <p class="content"><?=cutLongText($post['content'])?></p>
                         </div>
                     </section>
