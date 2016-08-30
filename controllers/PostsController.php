@@ -16,9 +16,15 @@ class PostsController extends BaseController
 
     public function index()
     {
+        $this->categories=$this->model->getAllCategories();
         if ($this->model->countPosts()!='0') {
             $currentPage  = (isset($_GET['page'])) ? $_GET['page'] : 1 ;
-            $this->posts = $this->model->getAll($currentPage, 5);
+            if (isset($_POST['category']))
+            {
+                $this->posts = $this->model-> getPostByCategoryId ($_POST['category']);
+            } else {
+                $this->posts = $this->model->getAll($currentPage, 5);
+            }
         } else {
             $this->addInfoMessage("There are no posts.");
             $this->posts = [];
@@ -63,12 +69,12 @@ class PostsController extends BaseController
     {
         $this->categories=$this->model->getAllCategories();
         $defaultCategoryID = $this->model->getOthersCategoryId();
-        $category_id = ($_POST['category']) ? $_POST['category'] : $defaultCategoryID['id'] ;
         if ($this->model->getUserIdByPostId($id)!=intval($_SESSION['userId'])){
             $this->addErrorMessage("You cannot edit this post!");
             $this->redirect('posts');
             }
         if($this->isPost){
+            $category_id = ($_POST['category']) ? $_POST['category'] : $defaultCategoryID['id'] ;
             $title = $_POST['title'];
             if(strlen($title) < 1){
                 $this->setValidationError("title", "This field cannot be empty!");

@@ -13,9 +13,10 @@ class PostsModel extends BaseModel
         $from = ($page-1)*$perPage;
         $to = $page*$perPage;
         $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date,
-             posts.user_id, pictures.name as image " .
+             posts.user_id, pictures.name as image,categories.name as category " .
             "FROM posts LEFT JOIN users ON posts.user_id = users.ID ".
-            "LEFT JOIN pictures ON pictures.post_id = posts.Id ".
+            "LEFT JOIN pictures ON pictures.post_id = posts.Id " .
+            "LEFT JOIN categories ON categories.id = posts.category_id ".
             "ORDER BY date DESC " . "LIMIT $from, $to ");
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
@@ -158,5 +159,18 @@ class PostsModel extends BaseModel
            return true;
        }
        return false;
+   }
+
+   public function getPostByCategoryId ($id)
+   {
+       $statement = self::$db->prepare("SELECT users.UserName, users.FullName, posts.user_id, posts.date,
+            posts.title, posts.content,pictures.name as image, posts.Id, categories.name as category, posts.category_id " .
+           "FROM posts LEFT JOIN users ON posts.user_id = users.ID " .
+           "LEFT JOIN pictures ON pictures.post_id = posts.Id ".
+           "LEFT JOIN categories ON categories.id = posts.category_id ".
+           "WHERE categories.id = ? ");
+       $statement -> bind_param("i",$id);
+       $statement ->execute();
+       return $statement->get_result()->fetch_all(MYSQLI_ASSOC);
    }
 }

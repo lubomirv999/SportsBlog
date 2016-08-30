@@ -8,6 +8,15 @@
     <div class="container">
         <div class="row 200%">
             <div class="8u 12u$(medium)">
+                <form action="" method="post">
+                    <select name="category" id="category">
+                        <option value="0" selected="selected">Search by category</option>
+                        <?php foreach ($this->categories as $category): ?>
+                            <option value="<?= $category['id']; ?>"><?= htmlspecialchars($category['name']); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <input type="submit" name="submit" value="Search" />
+                </form>
             <?php if ($postsCount > 0)  : ?>
             <?php foreach ($this->posts as $post) : ?>
                     <div id="content">
@@ -18,6 +27,9 @@
                             <span><i>Posted on</i>
                                 <?=(new DateTime($post['date']))->format('d-M-Y')?>
                                 <i>by </i><?=htmlentities($post['FullName'])?>
+                            </span>
+                            <span>
+                                <i>Category: </i><?=htmlentities($post['category'])?>
                             </span>
                             <p>
                                 <img src="<?=APP_ROOT?>/content/images/default.jpg" style="width:150px;height:150px;"/>
