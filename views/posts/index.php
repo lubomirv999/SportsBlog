@@ -19,6 +19,7 @@
                 </form>
             <?php if ($postsCount > 0)  : ?>
             <?php foreach ($this->posts as $post) : ?>
+                    <?php $pictureURL = ($post['image']) ? $post['image'] : 'content/images/default.jpg'; ?>
                     <div id="content">
 
                         <!-- Content -->
@@ -32,7 +33,7 @@
                                 <i>Category: </i><?=htmlentities($post['category'])?>
                             </span>
                             <p>
-                                <img src="<?=APP_ROOT?>/content/images/default.jpg" style="width:150px;height:150px;"/>
+                                <img src="<?=APP_ROOT . '/' . $pictureURL; ?>" style="width:150px;height:150px;"/>
                             </p>
                             <p><?= cutLongText($post['content'])?></p>
                             <table>

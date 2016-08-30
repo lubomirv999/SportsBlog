@@ -6,9 +6,9 @@
 
 <form method="post">
     <select name="category" id="category">
-        <option value="<?= $this->post['category_id']?>" selected="selected"><?= htmlspecialchars($this->post['category']); ?></option>
         <?php foreach ($this->categories as $category): ?>
-            <option value="<?= $category['id']; ?>"><?= htmlspecialchars($category['name']); ?></option>
+            <?php $selected = ($this->post['category_id'] == $category['id']) ? 'selected' : ''; ?>
+            <option <?= $selected; ?> value="<?= $category['id']; ?>"><?= htmlspecialchars($category['name']); ?></option>
         <?php endforeach; ?>
     </select>
     <div>Title:</div>

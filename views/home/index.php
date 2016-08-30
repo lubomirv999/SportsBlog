@@ -24,9 +24,12 @@
     <div class="container">
         <div class="row">
             <?php foreach ($this -> posts as $post): ?>
+                <?php $pictureURL = ($post['image']) ? $post['image'] : 'content/images/default.jpg'; ?>
                 <div class="4u 12u(medium)">
                     <section class="box feature">
-                        <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>" class="image featured"><img style="width:350px;height:250px;" src="<?=APP_ROOT?>/content/images/default.jpg" alt="" /></a>
+                        <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>" class="image featured">
+                            <img style="width:350px;height:250px;" src="<?=APP_ROOT . '/' . $pictureURL; ?>" alt="" />
+                        </a>
                         <div class="inner">
                             <header>
                                 <h2 class="title"> <?=htmlentities($post['title'])?></h2>
