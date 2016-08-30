@@ -35,7 +35,7 @@
                                 <h2 class="title"> <?=htmlentities($post['title'])?></h2>
                                 <div class="date"><i>Posted on</i>
                                     <?=(new DateTime($post['date']))->format('d-M-Y')?>
-                                    <i>by </i><?=htmlentities($post['FullName'])?>
+                                    <i>by </i><?=htmlentities($post['UserName'])?>
                                 </div>
                             </header>
                             <div><i>Category: <i/><?=htmlspecialchars($post['category'])?></div>

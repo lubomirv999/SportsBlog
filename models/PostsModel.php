@@ -12,7 +12,7 @@ class PostsModel extends BaseModel
     {
         $from = ($page-1)*$perPage;
         $to = $page*$perPage;
-        $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date,
+        $statement = self::$db->query("SELECT posts.Id, title, content, FullName, date,UserName,
              posts.user_id, pictures.name as image,categories.name as category " .
             "FROM posts LEFT JOIN users ON posts.user_id = users.ID ".
             "LEFT JOIN pictures ON pictures.post_id = posts.Id " .

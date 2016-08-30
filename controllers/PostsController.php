@@ -105,9 +105,11 @@ class PostsController extends BaseController
 
     public function delete(int $id)
     {
-        if ($this->model->getUserIdByPostId($id)!=intval($_SESSION['userId'])){
-            $this->addErrorMessage("You cannot delete this post!");
-            $this->redirect('posts');
+        if (!$this->isAdmin) {
+            if ($this->model->getUserIdByPostId($id) != intval($_SESSION['userId'])) {
+                $this->addErrorMessage("You cannot delete this post!");
+                $this->redirect('posts');
+            }
         }
         if ($this->isPost) {
             if ($this->model->delete($id)) {
@@ -156,9 +158,11 @@ class PostsController extends BaseController
     public function deleteComment(int $postId, int $commentId)
     {
         $postIdArray = [$postId];
-        if($this->model->getUserIdByCommentId($commentId)!=intval($_SESSION['userId'])) {
-            $this->addErrorMessage("You cannot delete this comment!");
-            $this->redirect('posts','view_post',$postIdArray);
+        if (!$this->isAdmin) {
+            if ($this->model->getUserIdByCommentId($commentId) != intval($_SESSION['userId'])) {
+                $this->addErrorMessage("You cannot delete this comment!");
+                $this->redirect('posts', 'view_post', $postIdArray);
+            }
         }
         if ($this->model->deleteComment($commentId)) {
             $this->addInfoMessage("Comment was deleted successfully.");

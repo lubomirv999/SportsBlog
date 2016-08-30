@@ -27,7 +27,7 @@
                             <h2><a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>"><?= htmlspecialchars($post['title']) ?></a></h2>
                             <span><i>Posted on</i>
                                 <?=(new DateTime($post['date']))->format('d-M-Y')?>
-                                <i>by </i><?=htmlentities($post['FullName'])?>
+                                <i>by </i><?=htmlentities($post['UserName'])?>
                             </span>
                             <br>
                             <span>
