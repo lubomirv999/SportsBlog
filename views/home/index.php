@@ -26,7 +26,7 @@
             <?php foreach ($this -> posts as $post): ?>
                 <div class="4u 12u(medium)">
                     <section class="box feature">
-                        <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>" class="image featured"><img src="<?=APP_ROOT?>/content/images/phelps.jpg" alt="" /></a>
+                        <a href="<?=APP_ROOT?>/posts/view_post/<?=$post['Id']?>" class="image featured"><img style="width:350px;height:250px;" src="<?=APP_ROOT?>/content/images/default.jpg" alt="" /></a>
                         <div class="inner">
                             <header>
                                 <h2 class="title"> <?=htmlentities($post['title'])?></h2>
