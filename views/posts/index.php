@@ -15,7 +15,7 @@
                             <option value="<?= $category['id']; ?>"><?= htmlspecialchars($category['name']); ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <input type="submit" name="submit" value="Search" />
+                    <input style="height: 60px; padding: 5px; width: 100px;" type="submit" name="submit" value="Search" />
                 </form>
             <?php if ($postsCount > 0)  : ?>
             <?php foreach ($this->posts as $post) : ?>

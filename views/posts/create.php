@@ -18,9 +18,9 @@
         </script>
     </div>
     <div>
-        <input type="submit" name="submit" value="Create post" />
+        <input style="height: 60px; width: 150px; padding: 5px;" type="submit" name="submit" value="Create post" />
         <a href="<?=APP_ROOT?>/posts">Cancel</a>
     </div>
-    Select image to upload:
+    <span id="image">Select image to upload:</span>
     <input type="file" name="fileToUpload" id="fileToUpload">
 </form>

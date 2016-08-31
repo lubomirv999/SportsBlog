@@ -22,7 +22,7 @@
     </div>
     <div>
         <div>
-            <input type="submit" id="comment" name="submit_comment" value="Comment"/>
+            <input style="height: 50px; padding: 5px; width: 150px;" type="submit" id="comment" name="submit_comment" value="Comment"/>
         </div>
     </div>
 </form>
@@ -40,7 +40,7 @@
         <?= (new DateTime($comment['date']))->format('d-M-Y') ?><i> by </i>
         <?= htmlspecialchars($comment['UserName']) ?>
         <p style="color: black;" class="content"><?= $comment['content'] ?></p>
-           <div><input type="submit" name="deleteComment" id="deleteComment" value="Delete"></div>
+           <div><input style="height: 50px; padding: 5px; font-size: 15pt;" type="submit" name="deleteComment" id="deleteComment" value="Delete"></div>
        </div>
             <div style="background: whitesmoke">
                 <br>

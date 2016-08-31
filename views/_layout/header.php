@@ -30,7 +30,8 @@
 
                 <!-- TODO: FIX THE GREETING POSITION -->
                 <?php if ($this->isLoggedIn) : ?>
-                    <span>Hello, <b><a href="<?=APP_ROOT?>/team"><?=htmlspecialchars($_SESSION['username'])?></a></b></span>
+                    <br>
+                    <span style="margin: 0; margin-top: 0;">Hello, <b><a href="<?=APP_ROOT?>/team"><?=htmlspecialchars($_SESSION['username'])?></a></b></span>
                 <?php endif; ?>
 
             </div>
