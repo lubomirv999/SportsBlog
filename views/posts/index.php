@@ -12,10 +12,11 @@
                     <select name="category" id="category">
                         <option value="0" selected="selected">Search by category</option>
                         <?php foreach ($this->categories as $category): ?>
-                            <option value="<?= $category['id']; ?>"><?= htmlspecialchars($category['name']); ?></option>
+                            <option style="%" <?= $category['id']; ?>"><?= htmlspecialchars($category['name']); ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <input style="height: 60px; padding: 5px; width: 100px;" type="submit" name="submit" value="Search" />
+                    <br>
+                    <input style="height: 60px; text-align: center; padding: 5px; width: 150px;" type="submit" name="submit" value="Search" />
                 </form>
             <?php if ($postsCount > 0)  : ?>
             <?php foreach ($this->posts as $post) : ?>

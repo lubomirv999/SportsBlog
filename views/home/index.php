@@ -10,8 +10,8 @@
             <div class="5u 12u(medium)">
                 <ul>
                     <?php if (!$this->isLoggedIn) : ?>
-                        <li><a href="<?=APP_ROOT?>/users/register" class="button big icon">Register</a></li>
-                        <li><a href="<?=APP_ROOT?>/team" class="button alt big icon">About us</a></li>
+                        <li style="float: inherit; padding-left: 120px;"><a href="<?=APP_ROOT?>/users/register" class="button big icon">Register</a></li>
+                        <li style="float: inherit; padding-left: 120px;"><a href="<?=APP_ROOT?>/team" class="button alt big icon">About us</a></li>
                     <?php else: ?>
                         <li><a href="<?=APP_ROOT?>/team" class="button alt big icon">About us</a></li>
                     <?php endif; ?>
@@ -37,9 +37,11 @@
                                     <?=(new DateTime($post['date']))->format('d-M-Y')?>
                                     <i>by </i><?=htmlentities($post['UserName'])?>
                                 </div>
-                            </header>
-                            <div><i>Category: <i/><?=htmlspecialchars($post['category'])?></div>
+                            <span>
+                                <i>Category: <?=htmlspecialchars($post['category'])?>
+                            </span>
                             <p class="content"><?=cutLongText($post['content'])?></p>
+                            </header>
                         </div>
                     </section>
                 </div>
