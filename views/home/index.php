@@ -37,9 +37,6 @@
                                     <?=(new DateTime($post['date']))->format('d-M-Y')?>
                                     <i>by </i><?=htmlentities($post['UserName'])?>
                                 </div>
-                            <span>
-                                <i>Category: <?=htmlspecialchars($post['category'])?>
-                            </span>
                             <p class="content"><?=cutLongText($post['content'])?></p>
                             </header>
                         </div>

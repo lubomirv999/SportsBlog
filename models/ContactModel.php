@@ -15,8 +15,19 @@ class ContactModel extends BaseModel
 
     public function listMessages()
     {
-        $statement = self::$db->query("SELECT contact.user_id, contact.content, contact.date FROM contact ");
+        $statement = self::$db->query("SELECT contact.user_id, contact.content, contact.date, contact.id FROM contact ");
         return $statement->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function deleteContact ($id) :bool
+    {
+        $statement = self::$db->prepare("DELETE FROM contact WHERE id = ? ");
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        if($statement->affected_rows == 1){
+            return true;
+        }
+        return false;
     }
 
 }

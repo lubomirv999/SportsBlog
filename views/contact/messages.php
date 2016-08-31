@@ -11,7 +11,7 @@
               <?=htmlspecialchars($contact['user_id'])?>
                 <p>Date: <?=htmlspecialchars($contact['date'])?></p>
             </div>
-            <a href="">[Delete]</a>
+            <a href="<?=APP_ROOT?>/contact/deleteContact/<?=$contact['id']?>">[Delete]</a>
         </div>
     <?php endforeach;?>
 </form>

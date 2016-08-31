@@ -12,7 +12,7 @@
                     <select name="category" id="category">
                         <option value="0" selected="selected">Search by category</option>
                         <?php foreach ($this->categories as $category): ?>
-                            <option style="%" <?= $category['id']; ?>"><?= htmlspecialchars($category['name']); ?></option>
+                            <option style="%" value="<?= $category['id']; ?>"><?= htmlspecialchars($category['name']); ?></option>
                         <?php endforeach; ?>
                     </select>
                     <br>

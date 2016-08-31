@@ -70,7 +70,7 @@ class UsersController extends BaseController
         if ($this->isAdmin) {
             $this->users = $this->model->listUsers();
         } else{
-            $this->addInfoMessage("Педераст!");
+            $this->addErrorMessage("Not Authorized!");
             $this->redirect("home");
         }
     }
@@ -81,13 +81,15 @@ class UsersController extends BaseController
         $class = implode(' ', $slices);
         $id = $slices[4];
         $deletedUser = $this->model->deleteUser($id);
-        if($deletedUser)
-        {
-            $this->addInfoMessage("User deleted successfully!");
-            $this->redirect("users");
-        }
-        else
-        {
+        if ($this->model->checkAdmin ($id)!= 1) {
+            if ($deletedUser) {
+                $this->addInfoMessage("User deleted successfully!");
+                $this->redirect("users");
+            } else {
+                $this->addErrorMessage("Error deleting user!");
+                $this->redirect("users");
+            }
+        }else {
             $this->addErrorMessage("Error deleting user!");
             $this->redirect("users");
         }

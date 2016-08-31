@@ -27,8 +27,19 @@ class ContactController extends BaseController
         if($this->isAdmin) {
             $this-> contact = $this->model->listMessages();
         } else {
-            $this->addInfoMessage("Педераст!");
+            $this->addErrorMessage("Not Authorized!");
             $this->redirect("home");
+        }
+    }
+
+    public function deleteContact($id)
+    {
+
+        if($this->model->deleteContact($id)){
+            $this->addInfoMessage("Message was deleted successfully.");
+            $this->redirect('contact','messages');
+        } else{
+            $this->addInfoMessage("Message cannot be deleted.");
         }
     }
 }
