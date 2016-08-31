@@ -32,7 +32,7 @@
                         </figure>
                     </li>
                     <li class="one_quarter">
-                        <figure><img src="<?=APP_ROOT?>/content/images/ProfilePic_IvoBarakov.jpg" alt="">
+                        <figure><img style="width: 160px; height: 160px;" src="<?=APP_ROOT?>/content/images/ProfilePic_IvoBarakov.jpg" alt="">
                             <figcaption>
                                 <p class="team_name">Ивайло Бараков</p>
                                 <p class="team_title">Back End</p>
