@@ -15,7 +15,7 @@ class ContactModel extends BaseModel
 
     public function listMessages()
     {
-        $statement = self::$db->query("SELECT contact.user_id, contact.content, contact.date FROM contact");
+        $statement = self::$db->query("SELECT contact.user_id, contact.content, contact.date FROM contact ");
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
 

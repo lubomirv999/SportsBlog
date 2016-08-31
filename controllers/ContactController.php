@@ -25,7 +25,7 @@ class ContactController extends BaseController
     public function messages()
     {
         if($this->isAdmin) {
-            $this->contact = $this->model->listMessages();
+            $this-> contact = $this->model->listMessages();
         } else {
             $this->addInfoMessage("Педераст!");
             $this->redirect("home");
